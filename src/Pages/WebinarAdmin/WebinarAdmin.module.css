@@ -1,0 +1,326 @@
+.form_control {
+  display: flex;
+  flex-direction: column;
+  width: 320%;
+  gap: 1px;
+  position: relative;
+  justify-content: center;
+}
+
+.form_control input {
+  height: 40px;
+  padding: 0 8px;
+}
+
+.form_control textarea {
+  padding: 8px;
+}
+
+.form_control label {
+  font-size: 14px;
+  position: absolute;
+  font-family: "Alegreya", sans-serif;
+  top: -12px;
+  left: 10px;
+  background-color: white;
+  padding: 0 10px;
+}
+
+.contact_form {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact_form form {
+  display: flex;
+  gap: 30px;
+  padding-bottom: 2px;
+  flex-direction: column;
+}
+
+.form_control_check {
+  display: flex;
+  gap: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.center_paper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  justify-content: center;
+}
+
+.grid_content {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.Arranging {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-right: 1px;
+}
+
+.Head {
+  font-family: cursive;
+}
+
+.Image {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.Close {
+  float: right;
+}
+
+.Close:hover {
+  -webkit-transform: rotate(270deg) skewY(2deg);
+  -moz-transform: rotate(270deg) skewY(2deg);
+  -ms-transform: rotate(270deg) skewY(2deg);
+}
+
+.form_control select {
+  height: 40px;
+  padding: 0 8px;
+}
+
+.form_control h5 {
+  font-family: "Alegreya", sans-serif;
+  font-size: 14px;
+  position: absolute;
+  top: -12px;
+  left: 10px;
+  background-color: white;
+  padding: 0 10px;
+}
+
+.remainingC {
+  color: black;
+  font-weight: normal;
+  font-size: 10px;
+}
+
+.remainingCZero {
+  color: red;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.HeadingStyles {
+  font-family: "Alegreya", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--darkblue-color);
+  text-align: left;
+}
+
+.HeadingStyles2 {
+  font-family: "Alegreya", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--darkblue-color);
+  text-align: center;
+  background-color: aqua;
+  border-radius: 50px;
+  width: 20%;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.tableHeader {
+  background-color: rgb(0, 255, 255, 0.2);
+  color: var(--darkblue-color);
+}
+
+.button {
+  background-color: aqua;
+  color: var(--darkblue-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  font-family: "Alegreya", sans-serif;
+  font-weight: bold;
+  margin: 0 auto; 
+  outline: 0;
+  display: block;
+  text-align: center;
+  width: 20%;
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.button:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+.Notice{
+  font-family: "Alegreya", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--darkblue-color);
+  text-align: left;
+  padding: 1rem;
+  margin-left: 15%;
+  
+}
+
+@media(max-width:1200px){
+  .form_control {
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+    gap: 1px;
+    position: relative;
+    justify-content: center;
+    margin-left: 2em;
+  }
+  .contact_form {
+    display: flex;
+    flex-direction: column;
+    width: calc();
+    gap: 2px;
+  margin-left: 10em;
+  margin-right: 10em;
+  }
+  .button {
+    background-color: aqua;
+    color: var(--darkblue-color);
+    padding: 20px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    font-family: "Alegreya", sans-serif;
+    font-weight: bold;
+    margin: 0 auto; 
+    outline: 0;
+    display: block;
+    text-align: center;
+    width: 25%;
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+  }
+  .HeadingStyles2 {
+    font-family: "Alegreya", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--darkblue-color);
+    text-align: center;
+    background-color: aqua;
+    border-radius: 50px;
+    width: 30%;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+}
+  
+@media(max-width:720px){
+  .form_control {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    gap: 1px;
+    position: relative;
+    justify-content: center;
+    padding: 0;
+  }
+  .button {
+    background-color: aqua;
+    color: var(--darkblue-color);
+    padding: 20px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    font-family: "Alegreya", sans-serif;
+    font-weight: bold;
+    margin: 0 auto; 
+    outline: 0;
+    display: block;
+    text-align: center;
+    width: 40%;
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+  }
+  .HeadingStyles2 {
+    font-family: "Alegreya", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--darkblue-color);
+    text-align: center;
+    background-color: aqua;
+    border-radius: 50px;
+    width: 40%;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+}
+
+@media(max-width:660px){
+  .form_control {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    gap: 1px;
+    position: relative;
+    justify-content: center;
+    /* padding: 20px; */
+  }
+  .button {
+    background-color: aqua;
+    color: var(--darkblue-color);
+    padding: 10px 40px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    font-family: "Alegreya", sans-serif;
+    font-weight: bold;
+    margin: 0 auto; 
+    outline: 0;
+    display: block;
+    text-align: center;
+    width: 40%;
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+  }
+  .HeadingStyles2 {
+    font-family: "Alegreya", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--darkblue-color);
+    text-align: center;
+    background-color: aqua;
+    border-radius: 50px;
+    width: 45%;
+    padding: 1rem;
+    margin: 0 auto;
+  }
+}

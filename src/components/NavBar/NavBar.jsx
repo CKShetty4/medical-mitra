@@ -1,0 +1,83 @@
+import React,{useState} from 'react'
+import "./NavBar.css"
+import { logo, menuIcon, Close } from "../../images"
+import { Link, useNavigate } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
+
+
+const NavBar = () => {
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.clear();
+    navigate('/');
+  }
+  const [isActive, setIsActive] = useState(false);
+
+  return <><nav>
+    <Link to="/" className="logo">
+      <img src={logo} height={50} width={50} /><br></br>
+      <span className="LogoName">
+        Medical<span className="Aqua">Mitra</span></span>
+    </Link>
+    {
+      localStorage.getItem('user') ?
+        <><ul>
+          <li><NavLink to="/About" >About</NavLink></li>
+          {localStorage.getItem('type') === 'user' ?
+            <>
+              <li><NavLink to="/Webinar" >Webinar</NavLink></li>
+            </>
+            :
+            <>
+              <li><NavLink to="/WebinarAdmin" >Webinar</NavLink></li>
+            </>}
+          <li><NavLink to="/Contact" >Contact</NavLink></li>
+          <li><a href="" onClick={logout} >LogOut</a></li>
+        </ul></>
+        :
+        <>
+          <ul>
+            <li><NavLink to="/About" >About</NavLink></li>
+            <li><NavLink to="/Contact" >Contact</NavLink></li>
+            <li><NavLink to="/Login" >SignUp/Login</NavLink></li>
+          </ul>
+        </>
+    }
+    <div onClick={() => setIsActive(true)} className="menu_icon">
+      <img src={menuIcon} height={30} width={30} />
+    </div>
+
+  </nav>
+    <div className={`mobile_menu_container ${isActive ? "active" : ""}`}>
+      <div onClick={() => setIsActive(false)} className="close_icon">
+        <img src={Close} width={30} alt="" /></div>
+      {
+        localStorage.getItem('user') ?
+          <><ul className="menu_items">
+
+            <li><a href="/About"  onClick={() => setIsActive(false)}>About</a></li>
+            {localStorage.getItem('type') === 'user' ?
+              <>
+                <li><a href="/Webinar"  onClick={() => setIsActive(false)}>Webinar</a></li>
+              </>
+              :
+              <>
+                <li><a href="/WebinarAdmin"  onClick={() => setIsActive(false)}>Webinar</a></li>
+              </>}
+            <li><a href="/Contact"  onClick={() => setIsActive(false)}>Contact</a></li>
+            <li><a href="" onClick={logout} >LogOut</a></li>
+          </ul></>
+          :
+          <>
+            <ul className="menu_items">
+              <li><a href="/About"  onClick={() => setIsActive(false)}>About</a></li>
+              <li><a href="/Contact"  onClick={() => setIsActive(false)}>Contact</a></li>
+              <li><a href="/Login"  onClick={() => setIsActive(false)}>SignUp/Login</a></li>
+            </ul>
+          </>
+      }
+
+    </div></>
+}
+
+export default NavBar

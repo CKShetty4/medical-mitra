@@ -1,0 +1,135 @@
+.active {
+    background-color: hsl(180, 100%, 50%, 0.8);
+    border-radius: 10px;
+    background-size: cover;
+    padding: 10px 20px;
+    margin: 1px;
+}
+
+nav ul li a:not(.active):hover {
+    background-color: hsl(180, 100%, 50%, 0.3);
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 1px;
+    transition: 0.8s;
+    text-decoration: none;
+    color: #081036;
+    position: relative;
+}
+
+nav {
+    position: fixed;
+    width: 1024px;
+    top: 0;
+    background: rgba(241, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 300;
+    padding: 14px 32px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 30px;
+    text-align: center;
+}
+
+nav ul li a {
+    color: var(--SomeBlue);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+a.logo {
+    display: flex;
+    color: var(--Aqua);
+    font-weight: 800;
+    font-size: 16px;
+}
+
+a.logo .Aqua {
+    color: var(--SomeBlue);
+}
+
+a.logo .LogoName {
+    display: flex;
+    align-self: center;
+}
+
+.menu_icon,
+.mobile_menu_container {
+    display: none;
+}
+
+/* .Try {
+    background-color: hsl(180, 100%, 50%, 0.8);
+} */
+
+/* Tablet Version */
+@media (max-width: 1040px) {
+    nav {
+        width: 694px;
+    }
+}
+
+/* Smartphone Version */
+@media (max-width: 720px) {
+    nav ul {
+        display: none;
+    }
+
+    nav {
+        width: unset;
+        left: 30px;
+        right: 30px;
+    }
+
+    .menu_icon {
+        display: block;
+    }
+
+    .mobile_menu_container {
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top:0;
+        padding: 60px 32px;
+        background: rgba(241, 255, 255, 0.87);
+        z-index: 600;
+        transform: translateY(-100%);
+        transition: all 1200ms cubic-bezier(0.3, 0.96, 0.59, 0.95);
+    }
+
+    .mobile_menu_container.active {
+        transform: translateY(0);
+    }
+
+    .mobile_menu_container .menu_items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile_menu_container .close_icon {
+        position: fixed;
+        top: 27px;
+        right: 50px;
+        cursor: pointer;
+    }
+
+    .mobile_menu_container .menu_items li a {
+        color: var(--SomeBlue);
+        font-weight: 800;
+        font-size: 16px;
+        padding: 20px 0;
+        display: inline-block;
+    }
+
+}

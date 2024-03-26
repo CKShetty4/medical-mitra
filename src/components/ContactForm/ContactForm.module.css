@@ -1,0 +1,229 @@
+.container {
+    display: flex;
+    /* max-width: 1080px; */
+    margin: 0 auto;
+    margin-top: 40px;
+    align-items: end;
+    margin-left: 2%;
+  }
+  .top_btn {
+    display: flex;
+    gap: 32px;
+  }
+  .contact_image{
+    display: flex;
+    flex-direction: column;
+    width:608px;
+    height: 615px;
+    margin-left: 0;
+    padding: 5px;
+  }
+  .contact_image2{
+    display: none;
+  }
+  .contact_form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .contact_form form {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+    flex-direction: column;
+  }
+  .form_control {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+  }
+  .form_control input {
+    height: 40px;
+    padding: 0 8px;
+  }
+  .form_control textarea {
+    padding: 8px;
+  }
+  
+  .form_control label {
+    font-size: 14px;
+    position: absolute;
+    top: -12px;
+    left: 10px;
+    background-color: white;
+    padding: 0 10px;
+  }
+  .form_control_check {
+    display: flex;
+    gap:10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+
+  @media (max-width: 1200px) {
+    .container {
+      margin-left: 0;
+      margin-right: 5px;
+      flex-direction: column;
+    }
+    .contact_form {
+      gap: 16px;
+    }
+    
+    .contact_image2{
+      display: flex;
+      flex-direction: column;
+      width:608px;
+      height: 615px;
+      margin-left: 0;
+    }
+    .contact_image{
+      display: none;
+    }
+  }
+
+
+
+
+  @media (max-width: 1040px) {
+    .container {
+      margin-left: 0;
+      margin-right: 5px;
+      flex-direction: column;
+    }
+    .contact_form {
+      gap: 16px;
+    }
+    
+    .contact_image2{
+      display: flex;
+      flex-direction: column;
+      width:608px;
+      height: 615px;
+      margin-left: 0;
+    }
+    .contact_image{
+      display: none;
+    }
+  }
+  
+  @media (max-width: 720px) {
+    .container {
+      margin-left: 10vw;
+      flex-direction: column;
+      padding-left: 10vw;
+      margin-right: 0;
+
+    }
+    .contact_form {
+      gap: 16px;
+      margin-left: 20vw;
+      padding-left: 20vw;
+    }
+    .form_control label {
+      font-size: 12px;
+    }
+    .contact_image2{
+      display: flex;
+      flex-direction: column;
+      width:408px;
+      height: 415px;
+      margin-left: 10vw;
+      padding: 5px;
+    }
+    .contact_image{
+      display: none;
+    }
+    .form_control input {
+      height: 32px;
+    }
+    .form_control textarea {
+      padding: 8px;
+    }
+  }
+  @media (max-width: 600px) {
+    .container {
+      margin-inline-start: 25em;
+      flex-direction: column;
+      margin-inline-end: 10vw;
+
+    }
+    .contact_form {
+      gap: 16px;
+      margin-right: 10vw;
+      padding-left: 20vw;
+    }
+    .form_control label {
+      font-size: 12px;
+    }
+    .contact_image2{
+      display: flex;
+      flex-direction: column;
+      width:408px;
+      height: 415px;
+      margin-left: 10vw;
+      padding: 5px;
+    }
+    .contact_image{
+      display: none;
+    }
+    .form_control input {
+      height: 32px;
+    }
+    .form_control textarea {
+      padding: 8px;
+    }
+    .form_control{
+      width: 90%;
+    }
+    .top_btn {
+      display: flex;
+      gap: 12px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .container {
+      margin-inline-start: 24em;
+      flex-direction: column;
+      margin-inline-end: 3vw;
+      margin-right: 5rem;
+    }
+    .contact_form {
+      gap: 16px;
+      margin-right: 10vw;
+      padding-left: 1vw;
+    }
+    .form_control label {
+      font-size: 12px;
+    }
+    .contact_image2{
+      display: flex;
+      flex-direction: column;
+      width:308px;
+      height: 315px;
+      margin-left: 5vw;
+      margin-right: 10rem;
+      padding: 0;
+    }
+    .contact_image{
+      display: none;
+    }
+    .form_control input {
+      height: 32px;
+    }
+    .form_control textarea {
+      padding: 8px;
+    }
+    .form_control{
+      width: 90%;
+    }
+    .top_btn {
+      display: flex;
+      gap: 8px;
+    }
+  }

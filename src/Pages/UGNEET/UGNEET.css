@@ -1,0 +1,45 @@
+
+.pgneet .about-title{
+    font-family: "Alegreya",sans-serif;
+    margin: 0 auto;
+    color: var(--darkblue-color);
+    display: flex;
+    align-self: center;
+    text-align: center;
+    -ms-flex-align: center;
+    gap:5px;
+}
+
+.pgneet .about-text{
+    font-family: "Inter",sans-serif;
+    margin: 0 auto;
+    align-self: center;
+    text-align: center;
+}
+.pgneet .wrapper .content1 {
+    text-align: center;
+}
+.pgneet .wrapper .content {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap:6px;
+}
+.pgneet .chat-image {
+    margin: 0 20%;
+}
+
+a.logo .yellow{
+    color:var(--SomeBlue);
+}
+
+a.logo .LogoName{
+    display: flex;
+    align-self:center;
+}
+a.logo{
+    display: flex;
+    color: var(--YellowOrch-color);
+    font-weight: 800;
+    font-size: 16px;
+}

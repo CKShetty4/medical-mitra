@@ -1,0 +1,53 @@
+.input-field {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    outline: none;
+  }
+  
+  .form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .form-control {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  .form-button {
+    background: #0070f3;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+  }
+  
+  .form-button:hover {
+    background: #0056b3;
+  }
+  
+  .disabled-button {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  .resend-otp-link {
+    text-decoration: none;
+    color: #0070f3;
+  }
+  
+  .resend-otp-link:hover {
+    text-decoration: underline;
+  }

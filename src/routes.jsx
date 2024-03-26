@@ -1,0 +1,52 @@
+// routes.js
+import { Route, createBrowserRouter } from 'react-router-dom'
+import App from './App.jsx'
+import {About,Contact,Webinar,WebinarAdmin,UGNEET,PGNEET,Login,SignUp,PrivacyPolicy} from './Pages'
+
+
+const routes = [
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: 'About',
+    element: <About />,
+  },
+  {
+    path: 'Contact',
+    element: <Contact />,
+  },
+  {
+    path: 'Webinar',
+    element: <Webinar />,
+  },
+  {
+    path: 'WebinarAdmin',
+    element: <WebinarAdmin />,
+  },
+  {
+    path: 'UGNEET',
+    element: <UGNEET />,
+  },
+  {
+    path: 'PGNEET',
+    element: <PGNEET />,
+  },
+  {
+    path: 'Login',
+    element: <Login />,
+  },
+  {
+    path: 'SignUp',
+    element: <SignUp />,
+  },
+  {
+    path: 'PrivacyPolicy',
+    element: <PrivacyPolicy />,
+  },
+]
+
+const router = createBrowserRouter(routes)
+
+export default router

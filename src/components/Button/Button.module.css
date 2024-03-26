@@ -1,0 +1,70 @@
+.primary_btn {
+    padding: 18px 10px;
+    background-color: var(--Aqua);
+    color:var(--darkblue-color);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 220px;
+    font-size: 16px;
+    color: var(--darkblue-color);
+    padding: 10px 32px;
+    font-weight: 800;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .primary_btn:hover {
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+  }
+  .outline_btn {
+    padding: 18px 10px;
+    border: 1px solid var(--darkblue-color);
+    color: var(--darkblue-color);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 100px;
+    font-size: 16px;
+    color: var(--darkblue-color);
+    padding: 10px 32px;
+    font-weight: 800;
+    justify-content: center;
+    background-color: hsl(179, 100%, 41%,0.2);
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .outline_btn:hover{
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+  }
+  @media (max-width: 1200px) {
+    .primary_btn {
+      min-width: 180px;
+      height:10vh ;
+    }
+    .outline_btn {
+      width: 75vw;
+    }
+  }
+
+  @media (max-width: 1040px) {
+    .primary_btn {
+      min-width: 180px;
+      height:10vh ;
+    }
+    .outline_btn {
+      width: 75vw;
+    }
+  }
+  @media (max-width: 720px) {
+    .primary_btn {
+      min-width: 180px;
+      height:8vh ;
+      padding: auto;
+    }
+    .outline_btn {
+      width: 75vw;
+    }
+  }

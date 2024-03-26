@@ -1,0 +1,135 @@
+.content h2 {
+  -webkit-text-fill-color: var(--darkblue-color);
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: var(--darkblue-color);
+  font-family: montserrat;
+  font-size: 40px;
+  text-transform: uppercase;
+  letter-spacing: 20px;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.content h2 b {
+  /* -webkit-text-fill-color: transparent; */
+  letter-spacing: normal;
+  font-size: 20px;
+  letter-spacing: 3px;
+  -webkit-text-stroke-width: 0.1px;
+}
+
+.content h3 {
+  color: var(--darkblue-color);
+  font-family: "Alegreya", serif;
+  text-align: center;
+
+}
+
+.content h5 {
+  color: #000000;
+  font-family: "Alegreya", serif;
+  text-align: center;
+  font-size: 18px;
+
+}
+
+.content ul {
+  color: #000000;
+  font-family: "Alegreya", serif;
+  text-align: justify;
+  margin-left: 20%;
+  font-size: 18px;
+  margin-right: 10%;
+
+}
+
+.content h4 {
+  color: #000000;
+  font-family: "Alegreya", serif;
+}
+
+.content h1 {
+  color: var(--darkblue-color);
+  font-family: "Alegreya", serif;
+  text-align: center;
+
+}
+
+.Webinar {
+  display: flex;
+  padding: 10 auto;
+  margin-left: 5%;
+}
+
+.Webinar2 {
+  display: flex;
+  gap: 20px;
+  padding: 5px;
+  margin-right: 10%;
+
+}
+
+.clss h3 {
+  text-align: left;
+  font-size:large;
+}
+.clss h4 {
+  text-align: left;
+  font-size:large;
+}
+.clss h6 {
+  text-align: left;
+  font-size:medium;
+}
+.clss {
+  text-align: left;
+}
+.DOC{
+  display: block;
+  align-content:  center;
+  margin-left: 15vw;
+}
+
+@media(max-width:1200px){
+  .content h2 {
+    -webkit-text-fill-color: var(--darkblue-color);
+    -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-color: var(--darkblue-color);
+    font-family: montserrat;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 20px;
+    text-align: center;
+    line-height: 0.8;
+    letter-spacing: 1px;
+  }
+}
+@media(max-width:1040px){
+  .Webinar {
+    display: flex;
+    padding: 10 auto;
+    flex-direction: column;
+    margin-left: 5%;
+  }
+}
+@media(max-width:900px){
+  .content h2 {
+    -webkit-text-fill-color: var(--darkblue-color);
+    -webkit-text-stroke-width: 0.1px;
+    -webkit-text-stroke-color: var(--darkblue-color);
+    font-family: montserrat;
+    font-size: 25px;
+    text-transform: uppercase;
+    letter-spacing: 20px;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: 1px;
+  }
+  .DOC{
+    display: block;
+    align-content:  center;
+    width: 60%;
+    margin-left: 8vw;
+  }
+}
