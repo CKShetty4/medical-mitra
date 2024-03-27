@@ -36,11 +36,11 @@ const Login = () => {
       console.log(OTP);
 
       axios
-        .post("http://localhost:5000/send_recovery_email", {
+        .post("http://192.168.97.188:5000/recovery", {
           OTP:OTP,
           recipient_email: login_cred,
         })
-        .then(() => navigate('/'))
+        .then((res) => {console.log(res.data);})
         .catch(console.log);
       return;
     }
@@ -123,8 +123,8 @@ const Login = () => {
             </Grid>
             <Grid item xs={12} sm={6} lg={4} className={styles.center_paper}>
               <Paper elevation={8} className={styles.grid_content} p={80}>
-                <div className={styles.Close}><a href="">
-                  <Link to="/"> <img src={Close} width={25} /></Link></a></div>
+                <div className={styles.Close}><a href="/">
+                  <img src={Close} width={25} /></a></div>
                 <div className={styles.Arranging}>
                   <div className={styles.Image}><h1 className={styles.Head}>Login</h1><br /> <br /> <br /> <br />
                     <img src={SignUP} width={250} />
@@ -152,7 +152,7 @@ const Login = () => {
                           </div>
                         </div>
                       </div>
-                      <p className={styles.Register} onClick={() => nagigateToOtp()}>Don't remember your password?<Link to="/SignUp"  >Reset Password</Link></p>
+                      <p className={styles.Register} >Don't remember your password?<Link to="/Login" onClick={() => nagigateToOtp()} >Reset Password</Link></p>
                       <div style={{
                         display: 'flex', justifyContent: 'left', padding: '0 12%'
                       }}>

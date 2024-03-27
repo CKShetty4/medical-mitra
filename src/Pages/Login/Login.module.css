@@ -81,9 +81,9 @@
   margin-right: 25px;
 }
 
+
 .Close:hover {
   -webkit-transform: rotate(270deg) skewY(2deg);
-  transform: rotate(270deg) skewY(2deg);
   -moz-transform: rotate(270deg) skewY(2deg);
   -ms-transform: rotate(270deg) skewY(2deg);
 }

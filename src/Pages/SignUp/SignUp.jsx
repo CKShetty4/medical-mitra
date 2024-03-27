@@ -20,18 +20,18 @@ function SignUp() {
   const phoneNumberRef = useRef();
   const passwordRef = useRef();
 
-  const handlePasswordChange = (password) => {  
+  const handlePasswordChange = (password) => {
     setPassword(password);
   };
   useEffect(() => {
-    if (localStorage.getItem('status')===1) {
+    if (localStorage.getItem('status') === 1) {
       navigate('/');
     }
   }, [])
- 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://192.168.96.115:5000/Register/', {
+    fetch('http://192.168.97.188:5000/Register/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -120,7 +120,7 @@ function SignUp() {
             <Grid item xs={4} sm={6} lg={4} className={styles.center_paper}>
               <Paper elevation={8} className={styles.grid_content} p={100}>
                 <div className={styles.Close}>
-                <Link to="/"><img src={Close} width={25} /></Link></div>
+                  <Link to="/"><img src={Close} width={25} /></Link></div>
                 <br />
                 <div className={styles.Arranging}>
                   <div className={styles.Image}><h1 className={styles.Head}>SignUp</h1><br /> <br /> <br /> <br />
@@ -135,7 +135,7 @@ function SignUp() {
                       </div>
                       <div className={styles.form_control}>
                         <label htmlFor="number">Contact Number</label>
-                        <input placeholder='Enter your number' ref={phoneNumberRef} onChange={(e) => setPhoneNumber(e.target.value)} type="text" onkeypress="return /[0-9]/i.test(event.key)" name="number" />
+                        <input placeholder='Enter your number' ref={phoneNumberRef} onChange={(e) => setPhoneNumber(e.target.value)} type="text" onKeyDown={(e) => { if (!/[0-9]/.test(e.key)) { e.preventDefault(); } }} name="number" />
                       </div>
                       <div className={styles.form_control}>
                         <label required htmlFor="email">Email</label>
