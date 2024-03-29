@@ -36,7 +36,7 @@ const Login = () => {
       console.log(OTP);
 
       axios
-        .post("http://139.59.44.85:5000/recovery", {
+        .post("https://backend.medicalmitra.co.in/recovery", {
           OTP:OTP,
           recipient_email: login_cred,
         })
@@ -49,7 +49,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // fetch('http://192.168.97.188:5000/Login', {
-      fetch('http://139.59.44.85:5000/Login', {
+      fetch('https://backend.medicalmitra.co.in//Login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

@@ -49,7 +49,7 @@ const WebinarAdmin = () => {
   useEffect(() => {
     const getUserdata = async () => {
       try {
-        const response = await fetch('http://139.59.44.85:5000/Admin', {
+        const response = await fetch('https://backend.medicalmitra.co.in/Admin', {
           // const response = await fetch('http://192.168.97.188:5000/Admin', {
           method: 'GET',
           headers: {
