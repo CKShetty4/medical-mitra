@@ -36,7 +36,7 @@ const Login = () => {
       console.log(OTP);
 
       axios
-        .post("http://192.168.97.188:5000/recovery", {
+        .post("http://139.59.44.85::5000/recovery", {
           OTP:OTP,
           recipient_email: login_cred,
         })

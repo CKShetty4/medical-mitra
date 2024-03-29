@@ -31,7 +31,7 @@ function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://192.168.97.188:5000/Register/', {
+    fetch('http://139.59.44.85::5000/Register/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
