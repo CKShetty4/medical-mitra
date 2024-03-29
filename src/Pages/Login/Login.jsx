@@ -49,7 +49,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // fetch('http://192.168.97.188:5000/Login', {
-      fetch('https://backend.medicalmitra.co.in//Login', {
+      fetch('https://backend.medicalmitra.co.in/Login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
