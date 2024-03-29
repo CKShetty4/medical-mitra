@@ -19,7 +19,7 @@ const InfoContent = () => {
                         <div className={styles.content_container2}>
                                 <div className={styles.info_content2}>
                                     <p className="Amount"><strong>96K+</strong> MBBS & BDS Seats!</p>
-                                    <p className="Amount"><strong>25 Lakhs+</strong> Aspirants!</p>
+                                    <p className="Amount"><strong>24 Lakhs+</strong> Aspirants!</p>
                                     <p className={styles.Text2}>Get expert NEET guidance. Schedule a consultation with your Medical Mitra today!</p>
                                     <Link to="UGNEET" className="Contact-btn">
                                         <Button text="UG NEET" />

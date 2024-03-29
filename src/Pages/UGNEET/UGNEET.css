@@ -15,6 +15,16 @@
     align-self: center;
     text-align: center;
 }
+.pgneet .about-title2 {
+    font-family: "Alegreya", sans-serif;
+    margin: 100 50;
+    color: var(--darkblue-color);
+    display: flex;
+    align-self: center;
+    padding-left: 25%;
+    -ms-flex-align: center;
+    gap: 5px;
+}
 
 .pgneet .wrapper .content1 {
     text-align: center;

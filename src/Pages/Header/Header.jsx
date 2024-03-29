@@ -12,7 +12,7 @@ const Header = () => {
       </div>
         <div className="cta">
           <p className="Quote">
-            Leading the way in shaping tomorrow's doctors and engineers.
+            Leading the way in shaping tomorrow's doctors.
           </p>
           <h1>
             We equip you with the resources and skills needed to thrive.

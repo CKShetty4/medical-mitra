@@ -63,21 +63,22 @@ const UGNEET = () => {
               </Grid>
             </Grid>
             <br />
-            {localStorage.getItem('type') === 'user'?
+            {localStorage.getItem('type') === 'premium'?
+            <>
+            
+            </>
+            :
             <>
             <div className="MM499">
             <img src={MM4999} alt="" /></div>
             <div className="MM499mob">
             <img src={MM4999mob} alt="" /></div>
-            </>
-            :
-            <>
             </>}
             
             <br />
             <div className="content1">
                 <h2 className="about-title">While mastering NEET requires dedication, securing a seat is even more competitive. </h2>
-                <div className="content"><h3 className="about-title">And How  <a href="/" className="logo"><h3 className="LogoName">
+                <div className="content"><h3 className="about-title2">And How  <a href="/" className="logo"><h3 className="LogoName">
                 Medical<span className="yellow">Mitra</span></h3></a> makes it easier</h3>
               </div></div>
             <div>
