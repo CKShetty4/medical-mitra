@@ -16,14 +16,14 @@ const NavBar = () => {
   return <><nav>
     <Link to="/" className="logo">
       <img src={logo} height={50} width={50} /><br></br>
-      <span className="LogoName">
-        Medical<span className="Aqua">Mitra</span></span>
+      <span className="LogoName"><span className="Aqua">Medical</span>
+        <span className="DarkBlue">Mitra</span></span>
     </Link>
     {
       localStorage.getItem('user') ?
         <><ul>
           <li><NavLink to="/About" >About</NavLink></li>
-          {localStorage.getItem('type') === 'user' ?
+          {localStorage.getItem('type') === 'user' ||localStorage.getItem('type') ==='premium' ?
             <>
               <li><NavLink to="/Webinar" >Webinar</NavLink></li>
             </>
@@ -32,6 +32,13 @@ const NavBar = () => {
               <li><NavLink to="/WebinarAdmin" >Webinar</NavLink></li>
             </>}
           <li><NavLink to="/Contact" >Contact</NavLink></li>
+          {localStorage.getItem('type') === 'user'?
+            <>
+            <li><NavLink to="PremiumDetail">Buy Now</NavLink></li>
+            </>
+            :
+            <>
+            </>}
           <li><a href="" onClick={logout} >LogOut</a></li>
         </ul></>
         :

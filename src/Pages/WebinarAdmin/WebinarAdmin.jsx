@@ -15,7 +15,7 @@ import $ from 'jquery';
 const WebinarAdmin = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    if (localStorage.getItem('type')==="user") {
+    if (localStorage.getItem('type')==="user"||localStorage.getItem('type')==="premium") {
       navigate('/Webinar');
     }
   }, [])
@@ -49,7 +49,8 @@ const WebinarAdmin = () => {
   useEffect(() => {
     const getUserdata = async () => {
       try {
-        const response = await fetch('http://139.59.44.85:5000/Admin', {
+        // const response = await fetch('http://139.59.44.85:5000/Admin', {
+          const response = await fetch('http://192.168.97.188:5000/Admin', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -224,7 +225,7 @@ Our friendly support team is here to assist you. If you have any questions or re
               </div>
             </div>
         )}
-      
+      <br /><br /><br /><br />
       
     </>
   )

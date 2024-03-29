@@ -63,7 +63,7 @@
     background-color: var(--Aqua);
     left: 100;
     margin:0;
-    bottom: 3.5rem;
+    bottom: 9%;
 }
 .Text2::before{
     content: "";
@@ -73,11 +73,19 @@
     background-color: var(--Aqua);
     left: 100;
     margin:0;
-    bottom: 3.5rem;
+    bottom: 9%;
 }
 
 
-/*Tablet Version*/
+@media(max-width:1200px)
+{
+    .Text::before{
+        bottom: 14%;
+    }
+    .Text2::before{
+        bottom: 14%;
+    } 
+}
 @media(max-width:1040px){
     .content_container{
         display: flex;
@@ -100,6 +108,12 @@
         padding: 0, 20px;
         margin-left: 10%;
     }
+    .Text::before{
+        bottom: 8%;
+    }
+    .Text2::before{
+        bottom: 8%;
+    } 
 }
 @media(max-width:720px){
     .content_container{
@@ -125,47 +139,20 @@
         margin-left: 10%;
     }
     .Text::before{
-        content: "";
-        position: absolute;
-        width:30vw;
-        height:3.5px;
-        background-color: var(--Aqua);
-        left: 100;
-        margin:0;
-        bottom: 3.5rem;
+        display: none;
     }
     .Text2::before{
-        content: "";
-        position: absolute;
-        width:30vw;
-        height:3.5px;
-        background-color: var(--Aqua);
-        left: 100;
-        margin:0;
-        bottom: 3.5rem;
-    }
+        display: none;
+    }   
+    
 }
 @media(max-width:600px){
   
     .Text::before{
-        content: "";
-        position: absolute;
-        width:30vw;
-        height:3.5px;
-        background-color: var(--Aqua);
-        left: 100;
-        margin:0;
-        bottom: 3.5em;
+        display: none;
     }
     .Text2::before{
-        content: "";
-        position: absolute;
-        width:30vw;
-        height:3.5px;
-        background-color: var(--Aqua);
-        left: 100;
-        margin:0;
-        bottom: 15.5em;
+        display: none;
     }
 }
 

@@ -54,6 +54,9 @@ a.logo {
 }
 
 a.logo .Aqua {
+    color: var(--Aqua);
+}
+a.logo .DarkBlue {
     color: var(--SomeBlue);
 }
 

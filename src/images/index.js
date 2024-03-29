@@ -45,4 +45,6 @@ import bg11 from "./bg11.png"
 import bg12 from "./bg12.png"
 import schedule from "./schedule.png"
 import menuIcon from "./menuIcon.png"
-export {Chat,lecture,SignUP,message,ContactService,telephone,Contacting,degree,medicalschool,worldwide,counseling,deadline,contract,contactlist,tracking,Close,corner,Home,Insta,Linkdin,Login,Logo,Mail,WhatsappLogo,logo,vision,mission,Values,Doctor,TextBG,Picture1,Youtube,Facebook,bg1,bg2,bg3,bg4,bg5,bg6,bg7,bg8,bg9,bg10,bg11,bg12,schedule,menuIcon}
+import MM4999 from "./MM4999.png"
+import MM4999mob from "./MM4999mob.png"
+export {Chat,MM4999,MM4999mob,lecture,SignUP,message,ContactService,telephone,Contacting,degree,medicalschool,worldwide,counseling,deadline,contract,contactlist,tracking,Close,corner,Home,Insta,Linkdin,Login,Logo,Mail,WhatsappLogo,logo,vision,mission,Values,Doctor,TextBG,Picture1,Youtube,Facebook,bg1,bg2,bg3,bg4,bg5,bg6,bg7,bg8,bg9,bg10,bg11,bg12,schedule,menuIcon}

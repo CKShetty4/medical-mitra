@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import "./UGNEET.css"
 import NavBar from '../../components/NavBar/NavBar'
-import { Logo, TextBG, Chat,degree,medicalschool,worldwide,counseling, deadline, contract,lecture, contactlist, tracking } from "../../images"
+import { Logo,degree,medicalschool,worldwide,counseling, deadline, contract,lecture, contactlist, tracking, MM4999, MM4999mob } from "../../images"
 import Footer from '../Footer/Footer'
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -62,14 +62,20 @@ const UGNEET = () => {
                   </div>  </Paper>
               </Grid>
             </Grid>
-            <div className="content">
-              <div className="content-details1">
-                <img src={TextBG} alt="Logo" width={1080} />
-              </div>
-            </div>
+            <br />
+            {localStorage.getItem('type') === 'user'?
+            <>
+            <div className="MM499">
+            <img src={MM4999} alt="" /></div>
+            <div className="MM499mob">
+            <img src={MM4999mob} alt="" /></div>
+            </>
+            :
+            <>
+            </>}
+            
             <br />
             <div className="content1">
-                <img src={Logo} alt="Logo" width={200} />
                 <h2 className="about-title">While mastering NEET requires dedication, securing a seat is even more competitive. </h2>
                 <div className="content"><h3 className="about-title">And How  <a href="/" className="logo"><h3 className="LogoName">
                 Medical<span className="yellow">Mitra</span></h3></a> makes it easier</h3>
