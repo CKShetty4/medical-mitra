@@ -40,7 +40,7 @@ const Login = () => {
       sessionStorage.setItem('OTP',OTP);
       sessionStorage.setItem('email',login_cred);
       axios
-        .post(`${BACKEND_HOST}/recovery`, {
+        .post(`${BACKEND_HOST}/ForgotPassword/Email`, {
           OTP:OTP,
           recipient_email: login_cred,
         })

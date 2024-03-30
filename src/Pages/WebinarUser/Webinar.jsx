@@ -69,27 +69,27 @@ const Webinar = () => {
           <div>
 
             {webData ? (
-              webData.status === "active" ? (
+              webData.statusFree === "active" ? (
                 <>
                 {/* Active Conditon USERS */}
                   {
-                    localStorage.getItem('type') === 'user' ?
+                    localStorage.getItem('type') === 'free' ?
                       <>
                         <div className={styles.Webinar2}>
                           <div>
                             <img src={schedule} width={60} alt="" />
                           </div>
                           <div>
-                            {webData && webData.user_lite && webData.user_lite.length > 0 && (
+                            {webData && webData.free && webData.free.length > 0 && (
                               <div className={styles.clss}>
                                 <h3>Don't miss out! Register for our upcoming webinar:</h3>
-                                <h3>{webData.user_lite[0].title}</h3>
-                                <h4>Description: {webData.user_lite[0].description}</h4>
+                                <h3>{webData.free[0].title}</h3>
+                                <h4>Description: {webData.free[0].description}</h4>
 
-                                <h6>Join us on {webData.user_lite[0].date} at {webData.user_lite[0].time} IST for an insightful webinar on {webData.user_lite[0].title}. <br />
+                                <h6>Join us on {webData.free[0].date} at {webData.free[0].time} IST for an insightful webinar on {webData.free[0].title}. <br />
                                   Reserve your spot today! Click the button below to register for this free webinar.</h6>
                                 Register Now! <br /> Space is limited, so don't delay!
-                                <a href={webData.user_lite[0].link}> <Button text={"Register"} /></a>
+                                <a href={webData.free[0].link}> <Button text={"Register"} /></a>
                               </div>
                             )}
                           </div>

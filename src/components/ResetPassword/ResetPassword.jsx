@@ -1,13 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from './ResetPassword.module.css'
-import Button from "../../components/Button/Button"
+import Button from "../Button/Button.jsx"
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import PasswordAndConfirmPasswordValidation from '../../components/PasswordVaildation/PasswordAndConfirmPasswordValidation';
+import PasswordAndConfirmPasswordValidation from '../PasswordVaildation/PasswordAndConfirmPasswordValidation.jsx';
 import { Link, useNavigate } from "react-router-dom";
-import { Logo, Close } from '../../images/index';
+import { Logo, Close } from '../../images/index.js';
 import { BACKEND_HOST } from '../../Constants.js';
 
 function ResetPassword() {
@@ -27,13 +27,12 @@ function ResetPassword() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`${BACKEND_HOST}/Register/`, {
+    fetch(`${BACKEND_HOST}/ForgotPassword/Reset`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        phoneNumber: phoneNumberRef.current.value,
         password: password
       })
     })
