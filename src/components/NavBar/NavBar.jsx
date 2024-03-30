@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import "./NavBar.css"
-import { logo, menuIcon, Close } from "../../images"
+import { menuIcon, Close,LogoCropped } from "../../images"
 import { Link, useNavigate } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ const NavBar = () => {
 
   return <><nav>
     <Link to="/" className="logo">
-      <img src={logo} height={50} width={50} /><br></br>
+      <img src={LogoCropped} height={30} width={30} />
       <span className="LogoName"><span className="Aqua">Medical</span>
         <span className="DarkBlue">Mitra</span></span>
     </Link>
@@ -34,7 +34,7 @@ const NavBar = () => {
           <li><NavLink to="/Contact" >Contact</NavLink></li>
           {localStorage.getItem('type') === 'user'?
             <>
-            <li><NavLink to="PremiumDetail">Buy Now</NavLink></li>
+            <li><NavLink to="/PremiumDetail">Buy Now</NavLink></li>
             </>
             :
             <>

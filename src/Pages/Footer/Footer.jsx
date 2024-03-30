@@ -46,7 +46,7 @@ const Footer = () => {
           <div className="links">
             <h3>Or Visit Us at</h3>
             <p>
-              66/2,<br /> 1st Floor, 5th Cross Rd,<br /> Srimatha Layout, Sharadhamba Nagar,<br /> Jalahalli Village, Bengaluru,<br /> Karnataka 560013
+              66/2 1st Floor, 5th Cross Rd,<br /> Srimatha Layout, Sharadhamba Nagar,<br /> Jalahalli Village, Bengaluru,<br /> Karnataka 560013
             </p>
           </div>
         </div>

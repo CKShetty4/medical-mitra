@@ -80,13 +80,14 @@
 
 .Close {
   float: right;
-  margin-right: 25px;
+  margin-right: 0;
 }
 
 .Close:hover {
-  -webkit-transform: rotate(270deg) skewY(2deg);
+  /* -webkit-transform: rotate(270deg) skewY(2deg);
   -moz-transform: rotate(270deg) skewY(2deg);
-  -ms-transform: rotate(270deg) skewY(2deg);
+  -ms-transform: rotate(270deg) skewY(2deg); */
+  rotate: 270deg;
 }
 
 @media(max-width:720px){
@@ -102,9 +103,30 @@
   align-items: center;
   padding: 0 5px;
 }
-.Close {
-  float: right;
-  margin-right: 15px;
-  cursor: pointer;
+
+.loginlink{
+  font-size: 14px;
+  text-align: center;
 }
-}
+.Image {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  }
+  .Image img{
+    width: 200px;
+    }
+
+    .Close {
+      float: right;
+      margin-right: 0;
+      width:100%;
+    }
+    .Close:hover {
+      /* -webkit-transform: rotate(270deg) skewY(2deg);
+      -moz-transform: rotate(270deg) skewY(2deg);
+      -ms-transform: rotate(270deg) skewY(2deg); */
+      rotate: 0deg;
+    }
+   
+} 

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import NavBar from '../../components/NavBar/NavBar'
-
+import { BACKEND_HOST } from '../../Constants.js';
 import $ from 'jquery';
 
 // export const Detailed = () => { }
@@ -49,8 +49,7 @@ const WebinarAdmin = () => {
   useEffect(() => {
     const getUserdata = async () => {
       try {
-        const response = await fetch('http://139.59.44.85:5000/Admin', {
-          // const response = await fetch('http://192.168.97.188:5000/Admin', {
+        const response = await fetch(`${BACKEND_HOST}/Admin`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -77,8 +76,7 @@ const WebinarAdmin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // fetch('http://192.168.97.188:5000/Webinar', {
-    fetch('http://139.59.44.85:5000/Webinar', {
+    fetch(`${BACKEND_HOST}/Webinar`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -205,16 +203,16 @@ Our friendly support team is here to assist you. If you have any questions or re
                   <table className="table table-bordered ">
                     <thead>
                       <tr>
-                        <th className={styles.tableHeader}>Sr. No</th>
+                        <th className={styles.tableHeader}>Reg. No</th>
                         <th className={styles.tableHeader}>Username</th>
                         <th className={styles.tableHeader}>Email</th>
                         <th className={styles.tableHeader}>Phone No</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {userData && userData.map((user, index) => (
+                      {userData && userData.map((user) => (
                         <tr key={user.id}>
-                          <td>{index + 1} </td>
+                          <td>{user.id} </td>
                           <td>{user.name} </td>
                           <td>{user.email} </td>
                           <td>{user.phonenumber} </td>

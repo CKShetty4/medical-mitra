@@ -78,7 +78,7 @@
 
 .Close {
   float: right;
-  margin-right: 25px;
+  margin-right: 0;
 }
 
 
@@ -115,6 +115,6 @@
 }
 .Close {
   float: right;
-  margin-right: 15px;
+  margin-right: 0;
 }
 }

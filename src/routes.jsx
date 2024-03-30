@@ -1,7 +1,7 @@
 // routes.js
 import { Route, createBrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
-import {About,Contact,Webinar,WebinarAdmin,UGNEET,PGNEET,Login,SignUp,PrivacyPolicy} from './Pages'
+import {About,Contact,Webinar,WebinarAdmin,UGNEET,PGNEET,Login,SignUp,PrivacyPolicy,PlanCompare} from './Pages'
 
 
 const routes = [
@@ -24,6 +24,10 @@ const routes = [
   {
     path: 'WebinarAdmin',
     element: <WebinarAdmin />,
+  },
+  {
+    path: 'PremiumDetail',
+    element: <PlanCompare />,
   },
   {
     path: 'UGNEET',

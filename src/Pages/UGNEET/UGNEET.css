@@ -38,7 +38,8 @@
 
 .pgneet .wrapper .MM499 img {
     width: 50vw;
-    height: 100%;
+    height: 90%;
+    margin : 0 auto;
 }
 
 .pgneet .wrapper .MM499mob {

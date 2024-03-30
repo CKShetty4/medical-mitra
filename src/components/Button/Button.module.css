@@ -39,11 +39,22 @@
   .outline_btn:hover{
     box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
   }
+
+  @media (max-width: 1330px) {
+    .primary_btn {
+      min-width: 180px;
+      height:5vh ;
+      padding: 20px 20px;
+      font-size: 14px;
+    }
+  }
   @media (max-width: 1200px) {
     .primary_btn {
       min-width: 180px;
-      height:10vh ;
+      height:5vh ;
+      padding: 20px 20px;
     }
+
     .outline_btn {
       width: 75vw;
     }
@@ -52,7 +63,7 @@
   @media (max-width: 1040px) {
     .primary_btn {
       min-width: 180px;
-      height:10vh ;
+      height:5vh ;
     }
     .outline_btn {
       width: 75vw;
@@ -61,8 +72,8 @@
   @media (max-width: 720px) {
     .primary_btn {
       min-width: 180px;
-      height:8vh ;
-      padding: auto;
+      height:5vh ;
+      padding: 0 auto;
     }
     .outline_btn {
       width: 75vw;

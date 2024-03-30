@@ -1,10 +1,12 @@
 import React,{useEffect} from 'react'
 import "./UGNEET.css"
 import NavBar from '../../components/NavBar/NavBar'
-import { Logo,degree,medicalschool,worldwide,counseling, deadline, contract,lecture, contactlist, tracking, MM4999, MM4999mob } from "../../images"
+import { Logo,degree,medicalschool,worldwide,counseling, deadline, contract,lecture, contactlist, tracking, MM4999, MM4999mob, MMPro } from "../../images"
 import Footer from '../Footer/Footer'
 import Grid from '@mui/material/Grid';
+import Button from "../../components/Button/Button"
 import Paper from '@mui/material/Paper';
+import { Link } from "react-router-dom";
 
 
 const UGNEET = () => {
@@ -63,7 +65,7 @@ const UGNEET = () => {
               </Grid>
             </Grid>
             <br />
-            {localStorage.getItem('type') === 'premium'?
+            {localStorage.getItem('type') === 'premium'||localStorage.getItem('type') === 'admin'?
             <>
             
             </>
@@ -73,6 +75,16 @@ const UGNEET = () => {
             <img src={MM4999} alt="" /></div>
             <div className="MM499mob">
             <img src={MM4999mob} alt="" /></div>
+            <div className="MM499">
+            <img src={MMPro} alt="" /></div>
+            <div className="MM499mob">
+            <img src={MMPro} alt="" /></div>
+            <br /><br />
+            <div style={{
+                        display: 'flex', justifyContent: 'center', padding: '0'
+                      }}>
+                  <Link to="/PremiumDetail"><Button text="Buy Now" /></Link></div>
+                  <br /><br />
             </>}
             
             <br />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Doctor, Logo, TextBG, Picture1 } from "../../images"
+import { Doctor, Logo,TextBG, TextBG2, Picture1 } from "../../images"
 import styles from "./InfoContent.module.css"
 import { Link } from "react-router-dom";
 import Button from "../Button/Button"
@@ -16,6 +16,7 @@ const InfoContent = () => {
                     <div className={styles.info_content}>
                         <img src={Logo} alt="Logo" className={styles.logo_img} />
                         <img src={TextBG} alt="Logo" className={styles.Chatbx} />
+                        <img src={TextBG2} alt="Logo" className={styles.Chatbx2} />
                         <div className={styles.content_container2}>
                                 <div className={styles.info_content2}>
                                     <p className="Amount"><strong>96K+</strong> MBBS & BDS Seats!</p>

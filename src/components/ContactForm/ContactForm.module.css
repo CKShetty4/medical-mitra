@@ -84,9 +84,27 @@
     .contact_image{
       display: none;
     }
+    .top_btn {
+      display: flex;
+      align-items: center;
+      padding-left: 20%;
+      gap: 50px;
+    }
   }
 
-
+@media (max-width: 1330px) {
+    .top_btn {
+      display: flex;
+      align-items: center;
+      padding-left: 0;
+      font-size: 12px;
+      gap: 50px;
+    }
+    .top_btn img{
+      width: 25px;
+      height: 25px;
+    }
+  }
 
 
   @media (max-width: 1040px) {
@@ -109,6 +127,12 @@
     .contact_image{
       display: none;
     }
+    .top_btn {
+      display: flex;
+      align-items: center;
+      padding-left: 10%;
+      gap: 50px;
+    }
   }
   
   @media (max-width: 720px) {
@@ -118,6 +142,12 @@
       padding-left: 10vw;
       margin-right: 0;
 
+    }
+    .top_btn {
+      display: flex;
+      align-items: center;
+      padding-left: 10%;
+      gap: 50px;
     }
     .contact_form {
       gap: 16px;
@@ -183,12 +213,13 @@
     .top_btn {
       display: flex;
       gap: 12px;
+      padding-left: 0;
     }
   }
 
   @media (max-width: 560px) {
     .container {
-      margin-inline-start: 24em;
+      margin-inline-start: 20rem;
       flex-direction: column;
       margin-inline-end: 3vw;
       margin-right: 5rem;
@@ -207,7 +238,7 @@
       width:308px;
       height: 315px;
       margin-left: 5vw;
-      margin-right: 10rem;
+      margin-right: 5rem;
       padding: 0;
     }
     .contact_image{
@@ -224,6 +255,6 @@
     }
     .top_btn {
       display: flex;
-      gap: 8px;
+      gap: 5px;
     }
   }

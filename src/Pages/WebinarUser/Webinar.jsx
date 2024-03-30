@@ -6,7 +6,7 @@ import BackGroundArt from '../../components/BackGroundArt/BackGroundArt';
 import { Doctor, schedule } from '../../images';
 import Footer from '../Footer/Footer'
 import Button from '../../components/Button/Button';
-
+import { BACKEND_HOST } from '../../Constants.js';
 
 
 const Webinar = () => {
@@ -21,8 +21,7 @@ const Webinar = () => {
   useEffect(() => {
     const getWebData = async () => {
       try {
-        const response = await fetch('http://139.59.44.85:5000/Webinar/User', {
-          // const response = await fetch('http://192.168.97.188:5000/Webinar/User', {
+        const response = await fetch(`${BACKEND_HOST}/Webinar/User`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'

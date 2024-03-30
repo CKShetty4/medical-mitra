@@ -1,6 +1,6 @@
 :root {
     --darkblue-color: #003369ff;
-    --Aqua: #00d1ce;
+    --Aqua: hsl(179, 100%, 41%,50%);
     --Grey-color: #B4B5B6;
     --DarkColor: #181E1E;
     --SomeBlue: #065481;

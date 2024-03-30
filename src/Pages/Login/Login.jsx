@@ -6,10 +6,12 @@ import Paper from '@mui/material/Paper';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from "react-router-dom";
-import { logo, SignUP, Close } from '../../images/index';
+import { logo, Close, Logo, LogoCropped } from '../../images/index';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { BACKEND_HOST } from '../../Constants.js';
+
 import axios from 'axios';
 library.add(faEye, faEyeSlash);
 const Login = () => {
@@ -36,20 +38,32 @@ const Login = () => {
       console.log(OTP);
 
       axios
-        .post("http://139.59.44.85:5000/recovery", {
+        .post(`${BACKEND_HOST}/recovery`, {
           OTP:OTP,
           recipient_email: login_cred,
         })
-        .then((res) => {console.log(res.data);})
+        .then((res) => {
+          toast.success(`${JSON.stringify(res.data.message)}`, {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+        })
         .catch(console.log);
       return;
     }
     return alert("Please enter your email");
   }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // fetch('http://192.168.97.188:5000/Login', {
-      fetch('http://139.59.44.85:5000/Login', {
+    fetch(`${BACKEND_HOST}/Login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -59,26 +73,14 @@ const Login = () => {
         password: password
       })
     })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(localStorage.getItem(data.message));
-        }
-        return response.json();
-      })
-      .then(data => {
-        // Handle the response from the backend
-        localStorage.setItem('status', data.status);
-        localStorage.setItem('user', data.user);
-        localStorage.setItem('message', data.message);
-        localStorage.setItem('type', data.type);
-      })
-      .catch(error => {
-        // Handle any errors
-        console.error(error);
-
-      });
-    setTimeout(() => {
-      if (Number(localStorage.getItem('status')) === 1) {
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.status === 1) {
         toast.success('Login Success', {
           position: "top-center",
           autoClose: 1000,
@@ -90,14 +92,13 @@ const Login = () => {
           theme: "light",
           transition: Bounce,
         });
-
+localStorage.setItem('user', data.user);
+localStorage.setItem('type', data.type);
         setTimeout(() => {
           navigate('/');
         }, 1500);
-      }
-      else {
-        
-        toast.error(localStorage.getItem("message"), {
+      } else {
+        toast.error(data.message, {
           position: "top-center",
           autoClose: 1000,
           hideProgressBar: false,
@@ -107,11 +108,23 @@ const Login = () => {
           progress: undefined,
           theme: "light",
           transition: Bounce,
-        })
-        localStorage.removeItem('user')
+        });
       }
-    }, 200);
-    
+    })
+    .catch(error => {
+      console.error(error);
+      toast.error(error.message, {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    });
   };
 
 
@@ -124,14 +137,15 @@ const Login = () => {
             </Grid>
             <Grid item xs={12} sm={6} lg={4} className={styles.center_paper}>
               <Paper elevation={8} className={styles.grid_content} p={80}>
-                <div className={styles.Close}><a href="/">
-                  <img src={Close} width={25} /></a></div>
+                <div className={styles.Close}><Link to="/">
+                  <img src={Close} width={25} /></Link></div>
                 <div className={styles.Arranging}>
-                  <div className={styles.Image}><h1 className={styles.Head}>Login</h1><br /> <br /> <br /> <br />
-                    <img src={SignUP} width={250} />
+                  <div className={styles.Image}><h1 className={styles.Head}>Login</h1><br /> 
+                    <img src={Logo} width={250} />
+                    <br /><br />
                   </div>
                   <div className="Form">
-                    <img src={logo} width={50} /><br /><br />
+                   <br /><br />
                     <form action="" onSubmit={handleSubmit}>
                       <div className={styles.form_control}>
                         <label htmlFor="Name">Username</label>

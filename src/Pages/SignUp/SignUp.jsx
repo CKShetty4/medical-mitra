@@ -7,7 +7,8 @@ import { Bounce, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PasswordAndConfirmPasswordValidation from '../../components/PasswordVaildation/PasswordAndConfirmPasswordValidation';
 import { Link, useNavigate } from "react-router-dom";
-import { logo, SignUP, Close } from '../../images/index';
+import { Logo, Close } from '../../images/index';
+import { BACKEND_HOST } from '../../Constants.js';
 
 function SignUp() {
   const [name, setName] = useState('');
@@ -31,8 +32,7 @@ function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://139.59.44.85:5000/Register/', {
-      // fetch('http://192.168.97.188:5000/Register/', {
+    fetch(`${BACKEND_HOST}/Register/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -54,8 +54,8 @@ function SignUp() {
         // Handle the response from the backend
         localStorage.setItem('message', data.message);
         localStorage.setItem('status', data.status);
-        localStorage.setItem('user', data.user);
-        localStorage.setItem('type', data.type);
+        // localStorage.setItem('user', data.user);
+        // localStorage.setItem('type', data.type);
       })
       .catch(error => {
         // Handle any errors
@@ -91,7 +91,7 @@ function SignUp() {
           theme: "light",
           transition: Bounce,
         });
-        localStorage.removeItem('user')
+        localStorage.clear()
       }
       else {
         toast.error(localStorage.getItem("message"), {
@@ -105,7 +105,7 @@ function SignUp() {
           theme: "light",
           transition: Bounce,
         })
-        localStorage.removeItem('user')
+        localStorage.clear()
       }
     }, 200);
 
@@ -124,11 +124,12 @@ function SignUp() {
                   <Link to="/"><img src={Close} width={25} /></Link></div>
                 <br />
                 <div className={styles.Arranging}>
-                  <div className={styles.Image}><h1 className={styles.Head}>SignUp</h1><br /> <br /> <br /> <br />
-                    <img src={SignUP} width={250} />
+                  <div className={styles.Image}><h1 className={styles.Head}>Register</h1><br /> 
+                    <img src={Logo} width={250} />
+                    <br /><br />
                   </div>
                   <div className="Form">
-                    <img src={logo} width={50} /><br /><br />
+                   <br /><br />
                     <form action="" onSubmit={handleSubmit}>
                       <div className={styles.form_control}>
                         <label htmlFor="Name">Username</label>
@@ -152,7 +153,7 @@ function SignUp() {
                       }}>
                         <Button text="SUBMIT" /></div>
                       <div className={styles.loginlink}>
-                        <p>Already have a account?<Link to="/Login">Login</Link></p>
+                        <p>Already have a account? <Link to="/Login">Login</Link></p>
                       </div>
                     </form>
                   </div>
