@@ -1,117 +1,212 @@
-import React from "react";
-import { useState } from "react";
-import { useContext } from "react";
-import { RecoveryContext } from "../App";
-import styles from "./EmailVerification.module.css";
+import React, { useState, useEffect } from "react";
 import OTPInput from "./OTPInput";
+import styles from "./EmailVerification.module.css";
+import 'react-toastify/dist/ReactToastify.css';
+import { Bounce, ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { BACKEND_HOST } from '../../Constants.js';
 
-const handleChange = (e, index, setOTPinput, OTPinput, func) => {
-  const value = e.target.value;
-  const newOTPinput = [...OTPinput];
-  newOTPinput[index] = value;
-
-  if (value.length === 1) {
-    if (index < newOTPinput.length - 1) {
-      newOTPinput[index + 1] = "";
-    }
-    setOTPinput(newOTPinput);
-  }
-
-  if (parseInt(newOTPinput.join(""), 10) === otp) {
-    func();
-  }
-};
-
-const inputProps = {
-  className:
-    "form-element w-16 h-16 flex flex-col items-center justify-center text-center px-5 outline-none rounded-xl border border-gray-200 text-lg bg-white focus:bg-gray-50 focus:ring-1 ring-blue-700",
-  maxLength: "1",
-  isLastElement: OTPinput[3] ? true : false,
-};
-
-export default function EmailVerification() {
-  const {
-    email,
-    otp,
-    setPage,
-    sendRecoveryOTP,
-    loading,
-    recoveryOTPInterval,
-    setRecoveryOTPInterval,
-    resetSendOTPStatus,
-  } = useContext(RecoveryContext);
-
-  const [timerCount, setTimer] = React.useState(60);
+const EmailVerification = () => {
   const [OTPinput, setOTPinput] = useState(["", "", "", ""]);
+  const [timerCount, setTimer] = useState(60);
+  const [timerInterval, setTimerInterval] = useState(null);
+  const navigate = useNavigate();
 
-  React.useEffect(() => {
-    if (loading) return;
-    resetSendOTPStatus();
-    setDisable(true);
-    setTimer(60);
-    // Clear previous interval if it exists
-    if (recoveryOTPInterval) clearInterval(recoveryOTPInterval);
-    const newInterval = setInterval(() => {
-      setTimer((lastTimerCount) => {
-        if (lastTimerCount <= 1) clearInterval(newInterval);
-        return lastTimerCount - 1;
-      });
-    }, 1000);
+  // Generate and store a new OTP
+  const generateOTP = () => {
+    const OTP = Math.floor(Math.random() * 9000 + 1000);
+    sessionStorage.setItem("OTP", OTP);
+    console.log("Generated OTP:", OTP);
+  };
 
-    setRecoveryOTPInterval(newInterval);
-    return () => clearInterval(newInterval);
-  }, [loading, resetSendOTPStatus, setDisable, recoveryOTPInterval, setRecoveryOTPInterval]);
-
-  const handleVerifyOTP = () => {
-    if (parseInt(OTPinput.join(""), 10) === otp) {
-      setPage("reset");
-    } else {
-      alert(
-        "The code you have entered is not correct, try again or re-send the link"
-      );
+  // Prevent Refresh
+  const handlePageReload = (event) => {
+    if (window.localStorage.length > 0 || window.sessionStorage.length > 0) {
+      const isConfirmed = confirm('You have unsaved data. Are you sure you want to leave?');
+      if (isConfirmed) {
+        clearStorage();
+      } else {
+        event.preventDefault();
+        event.returnValue = '';
+      }
     }
   };
 
-  const handleResendOTP = () => {
-    sendRecoveryOTP(email);
-    setDisable(false);
+  window.addEventListener('beforeunload', handlePageReload);
+
+  const clearStorage = () => {
+    localStorage.clear();
+    sessionStorage.clear();
+    // Redirect to the login page
+    window.location.href = '/Login';
   };
+
+  // Check if the page was reloaded using the performance.navigation API
+  const isPageReload = performance.navigation.type === performance.navigation.TYPE_RELOAD;
+
+  useEffect(() => {
+    if (isPageReload) {
+      clearStorage();
+    }
+  }, [isPageReload]);
+  // Connecting Backend
+  function nagigateToOtp() {
+    if (sessionStorage.getItem('email')) {
+      axios
+        .post(`${BACKEND_HOST}/recovery`, {
+          OTP: sessionStorage.getItem('OTP'),
+          recipient_email: sessionStorage.getItem('email'),
+        })
+        .then((res) => {
+          console.log(res.data.message);
+          toast.success(`${res.data.message}`, {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+        })
+        .catch(data => {
+          console.log(data.message);
+          data.message
+        });
+      return;
+    }
+    return;
+  }
+
+  // Handle the OTP input change
+  const handleChange = (e, index, setOTPinput, OTPinput) => {
+    const value = e.target.value.trim();
+    const newOTPinput = [...OTPinput];
+    newOTPinput[index] = value;
+
+    if (value.length === 1) {
+      if (index < newOTPinput.length - 1) {
+        newOTPinput[index + 1] = "";
+      }
+      setOTPinput(newOTPinput);
+      if (index < 3) {
+        e.target.nextElementSibling.focus();
+      }
+    }
+
+    if (index === 3) {
+      const enteredOTP = parseInt(newOTPinput.join(""), 10);
+      const storedOTP = parseInt(sessionStorage.getItem("OTP"));
+      console.log("enteredOTP:", enteredOTP);
+      console.log("storedOTP:", storedOTP);
+      if (enteredOTP === storedOTP) {
+        // Redirect to the password reset page if the OTP matches
+        sessionStorage.clear();
+        sessionStorage.setItem('reset', 1);
+        console.log("OTP matches! Redirecting to password reset page...");
+        navigate("/password-reset");
+      } else {
+        console.log("OTP did not match...");
+        toast.error("OTP did not match", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        sessionStorage.setItem('reset', 0);
+      }
+    }
+  };
+
+  // Handle the "Resend OTP" button click
+  const handleResendOTP = () => {
+    setOTPinput(["", "", "", ""]);
+    generateOTP();
+    nagigateToOtp();
+    setTimer(60);
+    const timerInterval = setTimeout(() => {
+      setTimer((prevCount) => prevCount - 1);
+    }, 1000);
+    setTimerInterval(timerInterval);
+  };
+
+  // Clear the timer when the component unmounts
+  useEffect(() => {
+    return () => {
+      if (timerInterval) {
+        clearTimeout(timerInterval);
+      }
+    };
+  }, [timerInterval]);
+
+  // Start the timer when the component mounts
+  useEffect(() => {
+    if (timerCount > 0) {
+      const timerInterval = setTimeout(() => {
+        setTimer((prevCount) => prevCount - 1);
+      }, 1000);
+      setTimerInterval(timerInterval);
+    }
+  }, [timerCount]);
 
   return (
     <div className={styles.formContainer}>
       <div className={styles.formControl}>
-        <div className="flex flex-row items-center justify-between mx-auto w-full max-w-xs">
+        <div className={styles.OTPField}>
           {[0, 1, 2, 3].map((index) => (
             <OTPInput
               value={OTPinput[index]}
               handleChange={(e) =>
-                handleChange(e, index, setOTPinput, OTPinput, handleVerifyOTP)
+                handleChange(e, index, setOTPinput, OTPinput)
               }
-              {...inputProps}
+              className={`form-element ${index === 3 ? "rounded-r-xl" : ""} ${styles.formInput}`}
+              maxLength="1"
+              isLastElement={index === 3}
               key={index}
             />
           ))}
         </div>
-      </div>
-      <div className={styles.formControl}>
+
+
         <div className="flex flex-row items-center justify-center text-center text-sm font-medium space-x-1 text-gray-500">
           <p>
-            Didn't recieve code?{" "}
-           <a
-              onClick={() => handleResendOTP()}
-              className="flex flex-row items-center cursor-pointer"
-            >
-              {loading ? (
-                <span className="">
-                  Resending in {timerCount}s
-                </span>
-              ) : (
-                "Resend OTP"
-              )}
-            </a>
+            Didn't receive code?{" "}
+            {timerCount > 0 ? (
+              <>
+                Resending in {timerCount}s
+              </>
+            ) : (
+              <a
+                onClick={handleResendOTP}
+                className="flex flex-row items-center cursor-pointer"
+              >
+                Resend OTP
+              </a>
+            )}
           </p>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
-}
+};
+
+export default EmailVerification;

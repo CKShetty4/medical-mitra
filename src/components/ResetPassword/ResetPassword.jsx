@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import styles from './SignUp.module.css'
+import styles from './ResetPassword.module.css'
 import Button from "../../components/Button/Button"
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -10,14 +10,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { Logo, Close } from '../../images/index';
 import { BACKEND_HOST } from '../../Constants.js';
 
-function SignUp() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+function ResetPassword() {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const nameRef = useRef();
-  const emailRef = useRef();
   const phoneNumberRef = useRef();
   const passwordRef = useRef();
 
@@ -38,8 +33,6 @@ function SignUp() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: nameRef.current.value,
-        email: emailRef.current.value,
         phoneNumber: phoneNumberRef.current.value,
         password: password
       })
@@ -51,20 +44,16 @@ function SignUp() {
         return response.json();
       })
       .then(data => {
-        // Handle the response from the backend
         localStorage.setItem('message', data.message);
         localStorage.setItem('status', data.status);
-        // localStorage.setItem('user', data.user);
-        // localStorage.setItem('type', data.type);
       })
       .catch(error => {
         // Handle any errors
         console.error(error);
-
       });
     setTimeout(() => {
       if (Number(localStorage.getItem('password')) === 1 && Number(localStorage.getItem('status')) === 1) {
-        toast.success("Registered Successfully", {
+        toast.success("Reset Successfully", {
           position: "top-center",
           autoClose: 1000,
           hideProgressBar: false,
@@ -80,7 +69,7 @@ function SignUp() {
         }, 1500);
       }
       else if (Number(localStorage.getItem('password')) === 0) {
-        toast.error("Please check the Password", {
+        toast.error("Password does not match", {
           position: "top-center",
           autoClose: 1000,
           hideProgressBar: false,
@@ -124,37 +113,20 @@ function SignUp() {
                   <Link to="/"><img src={Close} width={25} /></Link></div>
                 <br />
                 <div className={styles.Arranging}>
-                  <div className={styles.Image}><h1 className={styles.Head}>Register</h1><br /> 
+                  <div className={styles.Image}><h1 className={styles.Head}>Reset Password</h1><br /> 
                     <img src={Logo} width={250} />
                     
                   </div>
                   <div className="Form">
                    <br /> 
                     <form action="" onSubmit={handleSubmit}>
-                      <div className={styles.form_control}>
-                        <label htmlFor="Name">Username</label>
-                        <input required ref={nameRef} onChange={(e) => setName(e.target.value)} placeholder='UserName' type="text" name="Name" />
-                      </div>
-                      <div className={styles.form_control}>
-                        <label htmlFor="number">Contact Number</label>
-                        <input placeholder='Enter your number' ref={phoneNumberRef} onChange={(e) => setPhoneNumber(e.target.value)} type="text" onKeyDown={(e) => { if (!/[0-9]/.test(e.key)) { e.preventDefault(); } }} name="number" />
-                      </div>
-                      <div className={styles.form_control}>
-                        <label required htmlFor="email">Email</label>
-                        <input type='email' ref={emailRef} onChange={(e) => setEmail(e.target.value)} placeholder='Email' name="email" />
-                      </div>
+                      
                       <div><PasswordAndConfirmPasswordValidation ref={passwordRef} onChange={(e) => setPassword(e.target.value)} onPasswordChange={handlePasswordChange} /> </div>
-                      <div className={styles.form_control_check}>
-                        <input required type="checkbox" name="check" />
-                        <label htmlFor="chec"> I authorize Medical Mitra to contact me via email, SMS & voice call.</label>
-                      </div>
+                        <br />  
                       <div style={{
                         display: 'flex', justifyContent: 'left', padding: '0 12%'
                       }}>
                         <Button text="SUBMIT" /></div>
-                      <div className={styles.loginlink}>
-                        <p>Already have a account? <Link to="/Login">Login</Link></p>
-                      </div>
                     </form>
                   </div>
                 </div>
@@ -180,4 +152,4 @@ function SignUp() {
   );
 }
 
-export default SignUp
+export default ResetPassword

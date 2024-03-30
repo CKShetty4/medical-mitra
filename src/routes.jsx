@@ -2,7 +2,8 @@
 import { Route, createBrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import {About,Contact,Webinar,WebinarAdmin,UGNEET,PGNEET,Login,SignUp,PrivacyPolicy,PlanCompare} from './Pages'
-
+import EmailVerification from '../src/components/EmailVerification/EmailVerification.jsx'
+import ResetPassword from './components/ResetPassword/ResetPassword.jsx'
 
 const routes = [
   {
@@ -10,8 +11,16 @@ const routes = [
     element: <App />,
   },
   {
+    path: "/password-reset",
+    element: <ResetPassword />,
+  },
+  {
     path: 'About',
     element: <About />,
+  },
+  {
+    path: 'OTP',
+    element: <EmailVerification/>,
   },
   {
     path: 'Contact',

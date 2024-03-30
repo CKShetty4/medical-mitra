@@ -12,10 +12,8 @@ const OTPInput = ({
       value={value}
       onChange={handleChange}
       maxLength={maxLength}
-      type="text"
-      className={`${className} ${
-        isLastElement ? "rounded-r-xl" : "rounded-xl"
-      }`}
+type="text"
+      className={className}
     />
   );
 };

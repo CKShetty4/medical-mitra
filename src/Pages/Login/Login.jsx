@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BACKEND_HOST } from '../../Constants.js';
 
 import axios from 'axios';
+import { data } from 'jquery';
 library.add(faEye, faEyeSlash);
 const Login = () => {
 
@@ -36,7 +37,8 @@ const Login = () => {
     if (login_cred) {
       const OTP = Math.floor(Math.random() * 9000 + 1000);
       console.log(OTP);
-
+      sessionStorage.setItem('OTP',OTP);
+      sessionStorage.setItem('email',login_cred);
       axios
         .post(`${BACKEND_HOST}/recovery`, {
           OTP:OTP,
@@ -54,8 +56,9 @@ const Login = () => {
             theme: "light",
             transition: Bounce,
           });
+          navigate('/OTP');
         })
-        .catch(console.log);
+        .catch(data => {data.message});
       return;
     }
     return alert("Please enter your email");
@@ -166,7 +169,7 @@ localStorage.setItem('type', data.type);
                           </div>
                         </div>
                       </div>
-                      <p className={styles.Register} >Don't remember your password?<Link to="/Login" onClick={() => nagigateToOtp()} >Reset Password</Link></p>
+                      <p className={styles.Register} >Don't remember your password?<Link onClick={() => nagigateToOtp()} >Reset Password</Link></p>
                       <div style={{
                         display: 'flex', justifyContent: 'left', padding: '0 12%'
                       }}>
