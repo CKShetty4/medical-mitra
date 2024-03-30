@@ -90,6 +90,7 @@
   rotate: 270deg;
 }
 
+
 @media(max-width:720px){
   .form_control input {
     height: 30px;
@@ -107,6 +108,8 @@
 .loginlink{
   font-size: 14px;
   text-align: center;
+  padding: 0 4em;
+
 }
 .Image {
   display: flex;
@@ -123,10 +126,66 @@
       width:100%;
     }
     .Close:hover {
-      /* -webkit-transform: rotate(270deg) skewY(2deg);
-      -moz-transform: rotate(270deg) skewY(2deg);
-      -ms-transform: rotate(270deg) skewY(2deg); */
       rotate: 0deg;
     }
-   
 } 
+
+@media(max-width:600px){
+  .form_control input {
+    height: 30px;
+    padding: 0 1px;
+}
+.form_control_check {
+  display: flex;
+  gap: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  align-items: center;
+  padding: 0 3px;
+}
+.Register {
+  font-size: 12px;
+  text-align: center;
+}
+.Close {
+  float: right;
+  margin-right: 0;
+}
+.form_control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  gap: 2px;
+}
+.Arranging {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-right: 5px;
+}
+.Image img{
+  display: block;
+width: 5rem;
+}
+.form_control .input_password_container {
+  height: 20px;
+  padding: 0;
+  gap: 5px;
+}
+.form_control .input_password_container input {
+  height: 30px;
+  width: 100%;
+  padding: 0 8px;
+}
+.form_control .Icon {
+  position: relative;
+  top: -25px;
+  left: 250px;
+  opacity: 0.5;
+}
+.grid_content {
+  padding: 2rem;
+  margin: 0;
+}
+}

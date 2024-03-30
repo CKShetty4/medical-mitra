@@ -39,7 +39,7 @@ const Footer = () => {
           <div className="links">
             <h3>Contact Us</h3>
             <ul>
-              <li><a href="mailto:abc@example.com&Subject= About%20Medical%20Mitra&body=Hello,%20I%20have%20a%20question%20about%20Medical%20Mitra" target="_blank">Contact@email</a></li>
+              <li><a href="mailto:info@medicalmitra.co.in?Subject=About%20Medical%20Mitra&body=Hello,%20I%20have%20a%20question%20about%20Medical%20Mitra" target="_blank">info@medicalmitra.co.in</a></li>
               <li><a href="tel:8861619973">+91 8861619973</a></li>
             </ul>
           </div>

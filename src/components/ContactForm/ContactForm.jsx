@@ -34,7 +34,7 @@ const ContactForm = () => {
                 <a href="tel:8861619973">
                     <Button text="Via Call" image={<img src={telephone} />} /></a>
             </div>
-            <a href="mailto:abc@example.com?Subject=About%20Medical%20Mitra&body=Hello,%20I%20have%20a%20question%20about%20Medical%20Mitra" target="_blank">
+            <a href="mailto:info@medicalmitra.co.in?Subject=About%20Medical%20Mitra&body=Hello,%20I%20have%20a%20question%20about%20Medical%20Mitra" target="_blank">
                 <Button isOutline={true} text="Via eMail" image={<img src={Mail} />} />
             </a>
             <ToastContainer

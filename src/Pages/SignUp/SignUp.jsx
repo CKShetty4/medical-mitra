@@ -126,10 +126,10 @@ function SignUp() {
                 <div className={styles.Arranging}>
                   <div className={styles.Image}><h1 className={styles.Head}>Register</h1><br /> 
                     <img src={Logo} width={250} />
-                    <br /><br />
+                    
                   </div>
                   <div className="Form">
-                   <br /><br />
+                   <br />
                     <form action="" onSubmit={handleSubmit}>
                       <div className={styles.form_control}>
                         <label htmlFor="Name">Username</label>

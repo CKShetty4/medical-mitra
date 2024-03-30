@@ -8,10 +8,7 @@
 .form_control input {
   height: 40px;
   padding: 0 8px;
-}
-
-.form_control textarea {
-  padding: 8px;
+  font-size: 12px;
 }
 
 .form_control label {
@@ -58,7 +55,7 @@
 }
 
 .Head {
-  font-family: cursive;
+  font-family: cursive, sans-serif;
 }
 
 .Image {
@@ -96,6 +93,22 @@
   opacity: 0.5;
 }
 
+@media(max-width:1040px){
+  .form_control input {
+    height: 30px;
+    padding: 0 8px;
+}
+.loginlink{
+  font-size: 14px;
+  text-align: center;
+  padding: 0 4em;
+}
+.loginlink a, .loginlink Link {
+  display: block;
+  width: 100%;
+}
+}
+
 @media(max-width:720px){
   .form_control input {
     height: 30px;
@@ -116,5 +129,59 @@
 .Close {
   float: right;
   margin-right: 0;
+}
+}
+
+@media(max-width:600px){
+  .form_control input {
+    height: 30px;
+    padding: 0 2px;
+}
+.form_control_check {
+  display: flex;
+  gap: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  align-items: center;
+  padding: 0 3px;
+}
+.Register {
+  font-size: 12px;
+  text-align: center;
+}
+.Close {
+  float: right;
+  margin-right: 0;
+}
+.form_control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+}
+.Arranging {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-right: 10px;
+}
+.Image img{
+  display: block;
+width: 5rem;
+}
+.form_control .input_password_container {
+  height: 20px;
+  padding: 0;
+}
+.form_control .input_password_container input {
+  height: 30px;
+  width: 100%;
+  padding: 0 8px;
+}
+.form_control .Icon {
+  position: relative;
+  top: -25px;
+  left: 250px;
+  opacity: 0.5;
 }
 }

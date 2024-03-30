@@ -71,6 +71,7 @@ const Webinar = () => {
             {webData ? (
               webData.status === "active" ? (
                 <>
+                {/* Active Conditon USERS */}
                   {
                     localStorage.getItem('type') === 'user' ?
                       <>
@@ -95,12 +96,40 @@ const Webinar = () => {
                         </div>
                       </>
                       :
-                      <></>
+                      <>
+                        {/* Active Conditon PREMIUM */}
+                        {
+                          localStorage.getItem('type') === 'premium' ?
+                            <>
+                              <div className={styles.Webinar2}>
+                                <div>
+                                  <img src={schedule} width={60} alt="" />
+                                </div>
+                                <div>
+                                  {webData && webData.premium && webData.premium.length > 0 && (
+                                    <div className={styles.clss}>
+                                      <h3>Don't miss out! Register for our upcoming webinar:</h3>
+                                      <h3>{webData.premium[0].title}</h3>
+                                      <h4>Description: {webData.premium[0].description}</h4>
+
+                                      <h6>Join us on {webData.premium[0].date} at {webData.premium[0].time} IST for an insightful webinar on {webData.premium[0].title}. <br />
+                                        Reserve your spot today! Click the button below to register for this free webinar.</h6>
+                                      Register Now! <br /> Space is limited, so don't delay!
+                                      <a href={webData.premium[0].link}> <Button text={"Register"} /></a>
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            </>
+                            :
+                            <></>
+                        }
+                      </>
                   }
                 </>
               ) : (
                 <>
-
+                  {/* Inative condition */}
                   <div className={styles.Webinar2}>
                     <div>
                       <img src={schedule} width={60} alt="" />
@@ -127,7 +156,7 @@ const Webinar = () => {
               <div>Loading...</div>
             )}
 
-            {webData ? (
+            {/* {webData ? (
               webData.status === "active" ? (
                 <>
                   {
@@ -163,7 +192,7 @@ const Webinar = () => {
             ) : (
               <div>Loading...</div>
             )}
-
+ */}
 
           </div>
         </div>

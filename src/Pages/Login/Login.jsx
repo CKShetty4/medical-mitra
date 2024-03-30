@@ -142,10 +142,9 @@ localStorage.setItem('type', data.type);
                 <div className={styles.Arranging}>
                   <div className={styles.Image}><h1 className={styles.Head}>Login</h1><br /> 
                     <img src={Logo} width={250} />
-                    <br /><br />
                   </div>
                   <div className="Form">
-                   <br /><br />
+                   <br />
                     <form action="" onSubmit={handleSubmit}>
                       <div className={styles.form_control}>
                         <label htmlFor="Name">Username</label>
@@ -153,7 +152,7 @@ localStorage.setItem('type', data.type);
                       </div>
                       <div className={styles.form_control}>
                         <label htmlFor="Password">Password</label>
-                        <div className="input_password_container">
+                        <div className={styles.input_password_container}>
                           <input
                             required
                             ref={passwordRef}
@@ -173,7 +172,7 @@ localStorage.setItem('type', data.type);
                       }}>
                         <Button text="SUBMIT" /></div>
                       <div className="loginlink">
-                        <p className={styles.Register}>Don't have an account?<Link to="/SignUp">Register</Link></p>
+                        <p className={styles.Register}>Don't have an account?<Link to="/SignUp"><span>Register</span></Link></p>
                       </div>
                     </form>
                   </div>
