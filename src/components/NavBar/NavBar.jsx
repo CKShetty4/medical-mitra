@@ -46,6 +46,7 @@ const NavBar = () => {
           <ul>
             <li><NavLink to="/About" >About</NavLink></li>
             <li><NavLink to="/Contact" >Contact</NavLink></li>
+            <li><NavLink to="/Login" >Webinar</NavLink></li>
             <li><NavLink to="/Login" >SignUp/Login</NavLink></li>
           </ul>
         </>
@@ -72,6 +73,13 @@ const NavBar = () => {
                 <li><a href="/WebinarAdmin"  onClick={() => setIsActive(false)}>Webinar</a></li>
               </>}
             <li><a href="/Contact"  onClick={() => setIsActive(false)}>Contact</a></li>
+            {localStorage.getItem('type') === 'user'?
+            <>
+            <li><a href="/PremiumDetail"  onClick={() => setIsActive(false)}>Become a Premium User</a></li>
+            </>
+            :
+            <>
+            </>}
             <li><a href="" onClick={logout} >LogOut</a></li>
           </ul></>
           :
@@ -79,6 +87,7 @@ const NavBar = () => {
             <ul className="menu_items">
               <li><a href="/About"  onClick={() => setIsActive(false)}>About</a></li>
               <li><a href="/Contact"  onClick={() => setIsActive(false)}>Contact</a></li>
+              <li><a href="/Login"  onClick={() => setIsActive(false)}>Webinar</a></li>
               <li><a href="/Login"  onClick={() => setIsActive(false)}>SignUp/Login</a></li>
             </ul>
           </>

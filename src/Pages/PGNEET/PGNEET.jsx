@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import "./PGNEET.css"
 import NavBar from '../../components/NavBar/NavBar'
-import { Logo, TextBG,Chat } from "../../images"
+import { Logo, } from "../../images"
 import Footer from '../Footer/Footer'
 
 const PGNEET = () => {
@@ -25,11 +25,7 @@ const PGNEET = () => {
                         <h2 className="about-title">We guide you every step of the way towards achieving your desired outcome.</h2>
                     </div>
                     <br />
-                    <div className="content">
-                        <div className="content-details1">
-                            
-                            <img src={TextBG} alt="Logo" width={1080} />
-                        </div></div>
+
                     <br/>
                     <div>
                         <p className="about-text">Exciting news! We're upgrading our services in the coming days. To ensure you get the best results.</p>

@@ -1,4 +1,4 @@
-import Chat from "./Chat.png"
+// import Chat from "./Chat.png"
 import Close from "./Close.svg"
 import corner from "./corner.svg"
 // import Home from "./Home.svg"
@@ -52,4 +52,4 @@ import LogoCropped from "./LogoCropped.svg"
 import MMPro from "./MMPro.png"
 // import MMPromob from "./MMPromob.png"
 import Notice from "./Notice.png"
-export {Chat,MM4999,MM4999mob,lecture,SignUP,message,ContactService,telephone,Contacting,degree,medicalschool,worldwide,counseling,deadline,contract,contactlist,tracking,Close,corner,MMPro,Notice,Insta,Linkdin,Logo,Mail,WhatsappLogo,logo,vision,mission,Values,Doctor,TextBG2,TextBG,Picture1,Youtube,Facebook,bg1,bg2,bg3,bg4,bg5,bg6,bg7,bg8,bg9,bg10,bg11,bg12,schedule,menuIcon,LogoCropped}
+export {MM4999,MM4999mob,lecture,SignUP,message,ContactService,telephone,Contacting,degree,medicalschool,worldwide,counseling,deadline,contract,contactlist,tracking,Close,corner,MMPro,Notice,Insta,Linkdin,Logo,Mail,WhatsappLogo,logo,vision,mission,Values,Doctor,TextBG2,TextBG,Picture1,Youtube,Facebook,bg1,bg2,bg3,bg4,bg5,bg6,bg7,bg8,bg9,bg10,bg11,bg12,schedule,menuIcon,LogoCropped}
