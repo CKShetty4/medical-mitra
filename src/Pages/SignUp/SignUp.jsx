@@ -30,6 +30,86 @@ function SignUp() {
     }
   }, [])
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   fetch(`${BACKEND_HOST}/Register/`, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       name: nameRef.current.value,
+  //       email: emailRef.current.value,
+  //       phoneNumber: phoneNumberRef.current.value,
+  //       password: password
+  //     })
+  //   })
+  //     .then(response => {
+  //       if (!response.ok) {
+  //         throw new Error('HTTP error ' + response.status);
+  //       }
+  //       return response.json();
+  //     })
+  //     .then(data => {
+  //       // Handle the response from the backend
+  //       localStorage.setItem('message', data.message);
+  //       localStorage.setItem('status', data.status);
+  //       // localStorage.setItem('user', data.user);
+  //       // localStorage.setItem('type', data.type);
+  //     })
+  //     .catch(error => {
+  //       // Handle any errors
+  //       console.error(error);
+
+  //     });
+  //   setTimeout(() => {
+  //     if (Number(localStorage.getItem('password')) === 1 && Number(localStorage.getItem('status')) === 1) {
+  //       toast.success("Registered Successfully", {
+  //         position: "top-center",
+  //         autoClose: 1000,
+  //         hideProgressBar: false,
+  //         closeOnClick: true,
+  //         pauseOnHover: true,
+  //         draggable: true,
+  //         progress: undefined,
+  //         theme: "light",
+  //         transition: Bounce,
+  //       });
+  //       setTimeout(() => {
+  //         navigate('/');
+  //       }, 1500);
+  //     }
+  //     else if (Number(localStorage.getItem('password')) === 0) {
+  //       toast.error("Please check the Password", {
+  //         position: "top-center",
+  //         autoClose: 1000,
+  //         hideProgressBar: false,
+  //         closeOnClick: true,
+  //         pauseOnHover: true,
+  //         draggable: true,
+  //         progress: undefined,
+  //         theme: "light",
+  //         transition: Bounce,
+  //       });
+  //       localStorage.clear()
+  //     }
+  //     else {
+  //       toast.error(localStorage.getItem("message"), {
+  //         position: "top-center",
+  //         autoClose: 1000,
+  //         hideProgressBar: false,
+  //         closeOnClick: true,
+  //         pauseOnHover: true,
+  //         draggable: true,
+  //         progress: undefined,
+  //         theme: "light",
+  //         transition: Bounce,
+  //       })
+  //       localStorage.clear()
+  //     }
+  //   }, 200);
+
+  // };
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(`${BACKEND_HOST}/Register/`, {
@@ -44,26 +124,41 @@ function SignUp() {
         password: password
       })
     })
-      .then(response => {
-        if (!response.ok) {
+    .then(response => {
+      if (!response.ok) {
+        if (response.status === 409) {
+          console.log('Response status is 409');
+          throw new Error('User already exists');
+        } else {
           throw new Error('HTTP error ' + response.status);
         }
-        return response.json();
-      })
-      .then(data => {
-        // Handle the response from the backend
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Handle the response from the backend
+      if (data.status === 0) {
+        // Handle user already exists
+        console.log('Response status is 0');
+        localStorage.setItem('message', data.message);
+        toast.error(localStorage.getItem("message"), {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        localStorage.clear();
+      } else {
+        // Handle successful registration
         localStorage.setItem('message', data.message);
         localStorage.setItem('status', data.status);
-        // localStorage.setItem('user', data.user);
-        // localStorage.setItem('type', data.type);
-      })
-      .catch(error => {
-        // Handle any errors
-        console.error(error);
-
-      });
-    setTimeout(() => {
-      if (Number(localStorage.getItem('password')) === 1 && Number(localStorage.getItem('status')) === 1) {
+        localStorage.setItem('user', data.user);
+        localStorage.setItem('type', data.type);
         toast.success("Registered Successfully", {
           position: "top-center",
           autoClose: 1000,
@@ -79,21 +174,12 @@ function SignUp() {
           navigate('/');
         }, 1500);
       }
-      else if (Number(localStorage.getItem('password')) === 0) {
-        toast.error("Please check the Password", {
-          position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-        localStorage.clear()
-      }
-      else {
+    })
+    .catch(error => {
+      // Handle any errors
+      if (error.message === 'User already exists') {
+        // Handle user already exists
+        localStorage.setItem('message', error.message);
         toast.error(localStorage.getItem("message"), {
           position: "top-center",
           autoClose: 1000,
@@ -104,13 +190,14 @@ function SignUp() {
           progress: undefined,
           theme: "light",
           transition: Bounce,
-        })
-        localStorage.clear()
+        });
+        localStorage.clear();
+      } else {
+        // Handle any other errors
+        console.error(error);
       }
-    }, 200);
-
+    });
   };
-
   return (
     <>
       <div style={{ backgroundColor: 'var(--Aqua)', height: '100vh', width: '100%', }}>
