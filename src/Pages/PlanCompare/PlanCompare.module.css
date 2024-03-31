@@ -1,0 +1,13 @@
+.Images{
+    display: flex;
+    flex-direction: row;
+}
+.Premium{
+    position: relative;
+}
+.Btn{
+    position: absolute;
+    bottom: 30px;
+    left: 100px;
+
+}

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Header, Info, Footer } from './components'
+import { Header, Info, Footer,Services } from './components'
 import { WhatsappLogo } from './images'
 import Defaultpop from './components/PopUp/Defaultpop'
 
@@ -10,6 +10,7 @@ const App = () => {
   return <>
 
     <Header />
+    <Services />
     <Info />
     <Footer />
 

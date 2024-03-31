@@ -1,0 +1,25 @@
+.Title {
+    font-family: "Alegreya", sans-serif;
+    color: var(--darkblue-color);
+    align-self: center;
+    text-align: center;
+}
+
+.Body{
+    font-family: "Alegreya", sans-serif;
+    margin: 0 auto;
+    font-size: 20px;
+    text-align: justify;
+}
+
+.Body strong{
+    font-family: "Alegreya", sans-serif;
+    color: var(--darkblue-color);
+    align-self: center;
+    text-align: center;
+}
+
+.Wrapper{
+    max-width: 90%;
+    margin: 0 10%;
+}
