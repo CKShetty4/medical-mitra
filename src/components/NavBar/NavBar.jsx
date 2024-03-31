@@ -9,6 +9,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
+    sessionStorage.clear();
     navigate('/');
   }
   const [isActive, setIsActive] = useState(false);
@@ -23,7 +24,7 @@ const NavBar = () => {
       localStorage.getItem('user') ?
         <><ul>
           <li><NavLink to="/About" >About</NavLink></li>
-          {localStorage.getItem('type') === 'user' ||localStorage.getItem('type') ==='premium' ?
+          {localStorage.getItem('type') === 'free' ||localStorage.getItem('type') ==='premium' ?
             <>
               <li><NavLink to="/Webinar" >Webinar</NavLink></li>
             </>
@@ -32,7 +33,7 @@ const NavBar = () => {
               <li><NavLink to="/WebinarAdmin" >Webinar</NavLink></li>
             </>}
           <li><NavLink to="/Contact" >Contact</NavLink></li>
-          {localStorage.getItem('type') === 'user'?
+          {localStorage.getItem('type') === 'free'?
             <>
             <li><NavLink to="/PremiumDetail">Buy Now</NavLink></li>
             </>
@@ -64,7 +65,7 @@ const NavBar = () => {
           <><ul className="menu_items">
 
             <li><a href="/About"  onClick={() => setIsActive(false)}>About</a></li>
-            {localStorage.getItem('type') === 'user' ?
+            {localStorage.getItem('type') === 'free' ?
               <>
                 <li><a href="/Webinar"  onClick={() => setIsActive(false)}>Webinar</a></li>
               </>
@@ -73,7 +74,7 @@ const NavBar = () => {
                 <li><a href="/WebinarAdmin"  onClick={() => setIsActive(false)}>Webinar</a></li>
               </>}
             <li><a href="/Contact"  onClick={() => setIsActive(false)}>Contact</a></li>
-            {localStorage.getItem('type') === 'user'?
+            {localStorage.getItem('type') === 'free'?
             <>
             <li><a href="/PremiumDetail"  onClick={() => setIsActive(false)}>Become a Premium User</a></li>
             </>

@@ -15,7 +15,7 @@ import $ from 'jquery';
 const WebinarAdmin = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    if (localStorage.getItem('type')==="user"||localStorage.getItem('type')==="premium") {
+    if (localStorage.getItem('type')==="free"||localStorage.getItem('type')==="premium") {
       navigate('/Webinar');
     }
   }, [])
@@ -207,6 +207,7 @@ Our friendly support team is here to assist you. If you have any questions or re
                         <th className={styles.tableHeader}>Username</th>
                         <th className={styles.tableHeader}>Email</th>
                         <th className={styles.tableHeader}>Phone No</th>
+                        <th className={styles.tableHeader}>User Type</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -216,6 +217,7 @@ Our friendly support team is here to assist you. If you have any questions or re
                           <td>{user.name} </td>
                           <td>{user.email} </td>
                           <td>{user.phonenumber} </td>
+                          <td>{user.type} </td>
                         </tr>
                       ))}
                     </tbody>

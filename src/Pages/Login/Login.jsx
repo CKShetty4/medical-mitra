@@ -23,29 +23,74 @@ const Login = () => {
   const login_credRef = useRef();
   const passwordRef = useRef();
   useEffect(() => {
-    if (localStorage.getItem('status')===1) {
+    if (localStorage.getItem('status') === 1) {
       navigate('/');
     }
   }, [])
   const [showPassword, setShowPassword] = useState(false);
- 
+
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
 
   function nagigateToOtp() {
-    if (login_cred) {
+    if (login_credRef.current.value) {
       const OTP = Math.floor(Math.random() * 9000 + 1000);
       console.log(OTP);
-      sessionStorage.setItem('OTP',OTP);
-      sessionStorage.setItem('email',login_cred);
-      axios
-        .post(`${BACKEND_HOST}/ForgotPassword/Email`, {
-          OTP:OTP,
-          recipient_email: login_cred,
+      sessionStorage.setItem('OTP', OTP);
+      localStorage.setItem('email', login_credRef.current.value);
+
+      fetch(`${BACKEND_HOST}/ForgotPassword/Email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          OTP: OTP,
+          email: login_cred,
         })
-        .then((res) => {
-          toast.success(`${JSON.stringify(res.data.message)}`, {
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.status === 1) {
+            toast.success(data.message, {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Bounce,
+            });
+
+            setTimeout(() => {
+              navigate('/OTP');
+            }, 1500);
+          }
+          else {
+            toast.error(data.message, {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Bounce,
+            });
+          }
+        })
+        .catch(error => {
+          console.error(error);
+          toast.error(error.message, {
             position: "top-center",
             autoClose: 1000,
             hideProgressBar: false,
@@ -56,14 +101,13 @@ const Login = () => {
             theme: "light",
             transition: Bounce,
           });
-          navigate('/OTP');
-        })
-        .catch(data => {data.message});
-      return;
+        });
     }
-    return alert("Please enter your email");
-  }
+    else {
+      return alert("Please enter your email");
+    }
 
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(`${BACKEND_HOST}/Login`, {
@@ -76,15 +120,48 @@ const Login = () => {
         password: password
       })
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-      return response.json();
-    })
-    .then(data => {
-      if (data.status === 1) {
-        toast.success('Login Success', {
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.status === 1) {
+          toast.success('Login Success', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+          localStorage.setItem('user', data.user);
+          localStorage.setItem('type', data.type);
+          setTimeout(() => {
+            navigate('/');
+          }, 1500);
+        }
+        else {
+          toast.error(data.message, {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+        }
+      })
+      .catch(error => {
+        console.error(error);
+        toast.error(error.message, {
           position: "top-center",
           autoClose: 1000,
           hideProgressBar: false,
@@ -95,39 +172,7 @@ const Login = () => {
           theme: "light",
           transition: Bounce,
         });
-localStorage.setItem('user', data.user);
-localStorage.setItem('type', data.type);
-        setTimeout(() => {
-          navigate('/');
-        }, 1500);
-      } else {
-        toast.error(data.message, {
-          position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-      }
-    })
-    .catch(error => {
-      console.error(error);
-      toast.error(error.message, {
-        position: "top-center",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
       });
-    });
   };
 
 
@@ -143,15 +188,15 @@ localStorage.setItem('type', data.type);
                 <div className={styles.Close}><Link to="/">
                   <img src={Close} width={25} /></Link></div>
                 <div className={styles.Arranging}>
-                  <div className={styles.Image}><h1 className={styles.Head}>Login</h1><br /> 
+                  <div className={styles.Image}><h1 className={styles.Head}>Login</h1><br />
                     <img src={Logo} width={250} />
                   </div>
                   <div className="Form">
-                   <br />
+                    <br />
                     <form action="" onSubmit={handleSubmit}>
                       <div className={styles.form_control}>
                         <label htmlFor="Name">Username</label>
-                        <input required ref={login_credRef} onChange={(e) => setlogin_cred(e.target.value)} placeholder='UserName/Email/Phone Number' type="text" name="Name" />
+                        <input required ref={login_credRef} onChange={(e) => setlogin_cred(e.target.value)} placeholder='Email/Phone Number' type="text" name="Name" />
                       </div>
                       <div className={styles.form_control}>
                         <label htmlFor="Password">Password</label>

@@ -33,7 +33,8 @@ function ResetPassword() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        password: password
+        password_update: password,
+        email: localStorage.getItem('email')
       })
     })
       .then(response => {

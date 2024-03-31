@@ -25,7 +25,8 @@ const EmailVerification = () => {
     if (window.localStorage.length > 0 || window.sessionStorage.length > 0) {
       const isConfirmed = confirm('You have unsaved data. Are you sure you want to leave?');
       if (isConfirmed) {
-        clearStorage();
+        // clearStorage();
+        console.log('Data cleared');
       } else {
         event.preventDefault();
         event.returnValue = '';
@@ -36,8 +37,10 @@ const EmailVerification = () => {
   window.addEventListener('beforeunload', handlePageReload);
 
   const clearStorage = () => {
-    localStorage.clear();
-    sessionStorage.clear();
+    // localStorage.clear();
+    // sessionStorage.clear();
+    localStorage.setItem('email', sessionStorage.getItem('email'));
+    // sessionStorage.removeItem('OTP')
     // Redirect to the login page
     window.location.href = '/Login';
   };
@@ -50,13 +53,15 @@ const EmailVerification = () => {
       clearStorage();
     }
   }, [isPageReload]);
+
+
   // Connecting Backend
   function nagigateToOtp() {
     if (sessionStorage.getItem('email')) {
       axios
         .post(`${BACKEND_HOST}/recovery`, {
           OTP: sessionStorage.getItem('OTP'),
-          recipient_email: sessionStorage.getItem('email'),
+          recipient_email: localStorage.getItem('email'),
         })
         .then((res) => {
           console.log(res.data.message);

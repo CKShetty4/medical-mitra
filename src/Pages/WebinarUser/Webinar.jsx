@@ -12,8 +12,8 @@ import { BACKEND_HOST } from '../../Constants.js';
 const Webinar = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    if (localStorage.getItem('type') === "user") {
-      navigate('/Webinar');
+    if (localStorage.getItem('type') === "admin") {
+      navigate('/WebinarAdmin');
     }
   }, [])
   const [webData, setwebData] = useState();
