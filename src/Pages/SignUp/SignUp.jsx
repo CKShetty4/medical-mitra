@@ -155,10 +155,9 @@ function SignUp() {
         localStorage.clear();
       } else {
         // Handle successful registration
-        localStorage.setItem('message', data.message);
-        localStorage.setItem('status', data.status);
-        localStorage.setItem('user', data.user);
-        localStorage.setItem('type', data.type);
+    
+        localStorage.setItem('user', name);
+        localStorage.setItem('type', 'free');
         toast.success("Registered Successfully", {
           position: "top-center",
           autoClose: 1000,
