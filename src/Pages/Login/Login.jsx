@@ -11,9 +11,10 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BACKEND_HOST } from '../../Constants.js';
-
+import  secureLocalStorage  from  "react-secure-storage";
 import axios from 'axios';
 import { data } from 'jquery';
+
 library.add(faEye, faEyeSlash);
 const Login = () => {
 
@@ -23,7 +24,7 @@ const Login = () => {
   const login_credRef = useRef();
   const passwordRef = useRef();
   useEffect(() => {
-    if (localStorage.getItem('status') === 1) {
+    if (secureLocalStorage.getItem('status') === 1) {
       navigate('/');
     }
   }, [])
@@ -38,7 +39,7 @@ const Login = () => {
       const OTP = Math.floor(Math.random() * 9000 + 1000);
       console.log(OTP);
       sessionStorage.setItem('OTP', OTP);
-      localStorage.setItem('email', login_credRef.current.value);
+      secureLocalStorage.setItem('email', login_credRef.current.value);
 
       fetch(`${BACKEND_HOST}/ForgotPassword/Email`, {
         method: 'POST',
@@ -139,8 +140,8 @@ const Login = () => {
             theme: "light",
             transition: Bounce,
           });
-          localStorage.setItem('user', data.user);
-          localStorage.setItem('type', data.type);
+          secureLocalStorage.setItem('user', data.user);
+          secureLocalStorage.setItem('type', data.type);
           setTimeout(() => {
             navigate('/');
           }, 1500);

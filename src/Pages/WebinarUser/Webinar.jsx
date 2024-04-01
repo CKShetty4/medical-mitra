@@ -7,12 +7,12 @@ import { Doctor, schedule } from '../../images';
 import Footer from '../Footer/Footer'
 import Button from '../../components/Button/Button';
 import { BACKEND_HOST } from '../../Constants.js';
-
+import  secureLocalStorage  from  "react-secure-storage";
 
 const Webinar = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    if (localStorage.getItem('type') === "admin") {
+    if (secureLocalStorage.getItem('type') === "admin") {
       navigate('/WebinarAdmin');
     }
   }, [])
@@ -73,7 +73,7 @@ const Webinar = () => {
                 <>
                 {/* Active Conditon USERS */}
                   {
-                    localStorage.getItem('type') === 'free' ?
+                    secureLocalStorage.getItem('type') === 'free' ?
                       <>
                         <div className={styles.Webinar2}>
                           <div>
@@ -99,7 +99,7 @@ const Webinar = () => {
                       <>
                         {/* Active Conditon PREMIUM */}
                         {
-                          localStorage.getItem('type') === 'premium' ?
+                          secureLocalStorage.getItem('type') === 'premium' ?
                             <>
                               <div className={styles.Webinar2}>
                                 <div>
@@ -160,7 +160,7 @@ const Webinar = () => {
               webData.status === "active" ? (
                 <>
                   {
-                    localStorage.getItem('type') === 'premium' ?
+                    secureLocalStorage.getItem('type') === 'premium' ?
                       <>
                         <div className={styles.Webinar2}>
                           <div>

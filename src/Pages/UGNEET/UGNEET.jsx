@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 import Button from "../../components/Button/Button"
 import Paper from '@mui/material/Paper';
 import { Link } from "react-router-dom";
-
+import  secureLocalStorage  from  "react-secure-storage";
 
 const UGNEET = () => {
   useEffect(()=>{
@@ -65,7 +65,7 @@ const UGNEET = () => {
               </Grid>
             </Grid>
             <br />
-            {localStorage.getItem('type') === 'premium'||localStorage.getItem('type') === 'admin'?
+            {secureLocalStorage.getItem('type') === 'premium'||secureLocalStorage.getItem('type') === 'admin'?
             <>
             
             </>

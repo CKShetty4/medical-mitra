@@ -6,7 +6,7 @@ import { Bounce, ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { BACKEND_HOST } from '../../Constants.js';
-
+import  secureLocalStorage  from  "react-secure-storage";
 const EmailVerification = () => {
   const [OTPinput, setOTPinput] = useState(["", "", "", ""]);
   const [timerCount, setTimer] = useState(60);
@@ -22,7 +22,7 @@ const EmailVerification = () => {
 
   // Prevent Refresh
   const handlePageReload = (event) => {
-    if (window.localStorage.length > 0 || window.sessionStorage.length > 0) {
+    if (window.secureLocalStorage.length > 0 || window.sessionStorage.length > 0) {
       const isConfirmed = confirm('You have unsaved data. Are you sure you want to leave?');
       if (isConfirmed) {
         // clearStorage();
@@ -37,9 +37,9 @@ const EmailVerification = () => {
   window.addEventListener('beforeunload', handlePageReload);
 
   const clearStorage = () => {
-    // localStorage.clear();
+    // secureLocalStorage.clear();
     // sessionStorage.clear();
-    localStorage.setItem('email', sessionStorage.getItem('email'));
+    secureLocalStorage.setItem('email', sessionStorage.getItem('email'));
     // sessionStorage.removeItem('OTP')
     // Redirect to the login page
     window.location.href = '/Login';
@@ -61,7 +61,7 @@ const EmailVerification = () => {
       axios
         .post(`${BACKEND_HOST}/recovery`, {
           OTP: sessionStorage.getItem('OTP'),
-          recipient_email: localStorage.getItem('email'),
+          recipient_email: secureLocalStorage.getItem('email'),
         })
         .then((res) => {
           console.log(res.data.message);

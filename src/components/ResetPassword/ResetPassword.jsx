@@ -9,6 +9,7 @@ import PasswordAndConfirmPasswordValidation from '../PasswordVaildation/Password
 import { Link, useNavigate } from "react-router-dom";
 import { Logo, Close } from '../../images/index.js';
 import { BACKEND_HOST } from '../../Constants.js';
+import  secureLocalStorage  from  "react-secure-storage";
 
 function ResetPassword() {
   const [password, setPassword] = useState('');
@@ -20,7 +21,7 @@ function ResetPassword() {
     setPassword(password);
   };
   useEffect(() => {
-    if (localStorage.getItem('status') === 1) {
+    if (secureLocalStorage.getItem('status') === 1) {
       navigate('/');
     }
   }, [])
@@ -34,7 +35,7 @@ function ResetPassword() {
       },
       body: JSON.stringify({
         password_update: password,
-        email: localStorage.getItem('email')
+        email: secureLocalStorage.getItem('email')
       })
     })
       .then(response => {
@@ -44,15 +45,15 @@ function ResetPassword() {
         return response.json();
       })
       .then(data => {
-        localStorage.setItem('message', data.message);
-        localStorage.setItem('status', data.status);
+        secureLocalStorage.setItem('message', data.message);
+        secureLocalStorage.setItem('status', data.status);
       })
       .catch(error => {
         // Handle any errors
         console.error(error);
       });
     setTimeout(() => {
-      if (Number(localStorage.getItem('password')) === 1 && Number(localStorage.getItem('status')) === 1) {
+      if (Number(secureLocalStorage.getItem('password')) === 1 && Number(secureLocalStorage.getItem('status')) === 1) {
         toast.success("Reset Successfully", {
           position: "top-center",
           autoClose: 1000,
@@ -68,7 +69,7 @@ function ResetPassword() {
           navigate('/');
         }, 1500);
       }
-      else if (Number(localStorage.getItem('password')) === 0) {
+      else if (Number(secureLocalStorage.getItem('password')) === 0) {
         toast.error("Password does not match", {
           position: "top-center",
           autoClose: 1000,
@@ -80,10 +81,10 @@ function ResetPassword() {
           theme: "light",
           transition: Bounce,
         });
-        localStorage.clear()
+        secureLocalStorage.clear()
       }
       else {
-        toast.error(localStorage.getItem("message"), {
+        toast.error(secureLocalStorage.getItem("message"), {
           position: "top-center",
           autoClose: 1000,
           hideProgressBar: false,
@@ -94,7 +95,7 @@ function ResetPassword() {
           theme: "light",
           transition: Bounce,
         })
-        localStorage.clear()
+        secureLocalStorage.clear()
       }
     }, 200);
 

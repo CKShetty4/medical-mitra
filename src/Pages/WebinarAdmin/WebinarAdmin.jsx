@@ -10,12 +10,12 @@ import Paper from '@mui/material/Paper';
 import NavBar from '../../components/NavBar/NavBar'
 import { BACKEND_HOST } from '../../Constants.js';
 import $ from 'jquery';
-
+import  secureLocalStorage  from  "react-secure-storage";
 // export const Detailed = () => { }
 const WebinarAdmin = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    if (localStorage.getItem('type')!=="admin") {
+    if (secureLocalStorage.getItem('type')!=="admin") {
       navigate('/Webinar');
     }
   }, [])
@@ -118,7 +118,7 @@ const WebinarAdmin = () => {
       <h5 className={styles.HeadingStyles2}>
         Number of Users: {userData && userData.length}
       </h5>
-      <p className={styles.Notice}>Hello {localStorage.getItem('user')},<br />This page empowers you to manage upcoming seminars and user data with ease. </p>
+      <p className={styles.Notice}>Hello {secureLocalStorage.getItem('user')},<br />This page empowers you to manage upcoming seminars and user data with ease. </p>
  <ul className={styles.Notice}><li><strong>Manage Users: </strong> The current user count is displayed above, and click on the button labeled "View User List" to access the user list for further management options.</li>
 <li><strong>Host a Seminar: </strong> Toggle the button labeled "Host Webinar," to switch back to the seminar hosting interface.</li>
 <li><strong>Designed for Efficiency: </strong>

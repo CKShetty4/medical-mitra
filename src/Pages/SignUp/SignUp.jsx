@@ -9,6 +9,7 @@ import PasswordAndConfirmPasswordValidation from '../../components/PasswordVaild
 import { Link, useNavigate } from "react-router-dom";
 import { Logo, Close } from '../../images/index';
 import { BACKEND_HOST } from '../../Constants.js';
+import  secureLocalStorage  from  "react-secure-storage";
 
 function SignUp() {
   const [name, setName] = useState('');
@@ -25,7 +26,7 @@ function SignUp() {
     setPassword(password);
   };
   useEffect(() => {
-    if (localStorage.getItem('status') === 1) {
+    if (secureLocalStorage.getItem('status') === 1) {
       navigate('/');
     }
   }, [])
@@ -52,10 +53,10 @@ function SignUp() {
   //     })
   //     .then(data => {
   //       // Handle the response from the backend
-  //       localStorage.setItem('message', data.message);
-  //       localStorage.setItem('status', data.status);
-  //       // localStorage.setItem('user', data.user);
-  //       // localStorage.setItem('type', data.type);
+  //       secureLocalStorage.setItem('message', data.message);
+  //       secureLocalStorage.setItem('status', data.status);
+  //       // secureLocalStorage.setItem('user', data.user);
+  //       // secureLocalStorage.setItem('type', data.type);
   //     })
   //     .catch(error => {
   //       // Handle any errors
@@ -63,7 +64,7 @@ function SignUp() {
 
   //     });
   //   setTimeout(() => {
-  //     if (Number(localStorage.getItem('password')) === 1 && Number(localStorage.getItem('status')) === 1) {
+  //     if (Number(secureLocalStorage.getItem('password')) === 1 && Number(secureLocalStorage.getItem('status')) === 1) {
   //       toast.success("Registered Successfully", {
   //         position: "top-center",
   //         autoClose: 1000,
@@ -79,7 +80,7 @@ function SignUp() {
   //         navigate('/');
   //       }, 1500);
   //     }
-  //     else if (Number(localStorage.getItem('password')) === 0) {
+  //     else if (Number(secureLocalStorage.getItem('password')) === 0) {
   //       toast.error("Please check the Password", {
   //         position: "top-center",
   //         autoClose: 1000,
@@ -91,10 +92,10 @@ function SignUp() {
   //         theme: "light",
   //         transition: Bounce,
   //       });
-  //       localStorage.clear()
+  //       secureLocalStorage.clear()
   //     }
   //     else {
-  //       toast.error(localStorage.getItem("message"), {
+  //       toast.error(secureLocalStorage.getItem("message"), {
   //         position: "top-center",
   //         autoClose: 1000,
   //         hideProgressBar: false,
@@ -105,7 +106,7 @@ function SignUp() {
   //         theme: "light",
   //         transition: Bounce,
   //       })
-  //       localStorage.clear()
+  //       secureLocalStorage.clear()
   //     }
   //   }, 200);
 
@@ -140,8 +141,8 @@ function SignUp() {
       if (data.status === 0) {
         // Handle user already exists
         console.log('Response status is 0');
-        localStorage.setItem('message', data.message);
-        toast.error(localStorage.getItem("message"), {
+        secureLocalStorage.setItem('message', data.message);
+        toast.error(secureLocalStorage.getItem("message"), {
           position: "top-center",
           autoClose: 1000,
           hideProgressBar: false,
@@ -152,12 +153,12 @@ function SignUp() {
           theme: "light",
           transition: Bounce,
         });
-        localStorage.clear();
+        secureLocalStorage.clear();
       } else {
         // Handle successful registration
     
-        localStorage.setItem('user', name);
-        localStorage.setItem('type', 'free');
+        secureLocalStorage.setItem('user', name);
+        secureLocalStorage.setItem('type', 'free');
         toast.success("Registered Successfully", {
           position: "top-center",
           autoClose: 1000,
@@ -178,8 +179,8 @@ function SignUp() {
       // Handle any errors
       if (error.message === 'User already exists') {
         // Handle user already exists
-        localStorage.setItem('message', error.message);
-        toast.error(localStorage.getItem("message"), {
+        secureLocalStorage.setItem('message', error.message);
+        toast.error(secureLocalStorage.getItem("message"), {
           position: "top-center",
           autoClose: 1000,
           hideProgressBar: false,
@@ -190,7 +191,7 @@ function SignUp() {
           theme: "light",
           transition: Bounce,
         });
-        localStorage.clear();
+        secureLocalStorage.clear();
       } else {
         // Handle any other errors
         console.error(error);
