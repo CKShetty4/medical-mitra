@@ -16,13 +16,12 @@ const EmailVerification = () => {
   // Generate and store a new OTP
   const generateOTP = () => {
     const OTP = Math.floor(Math.random() * 9000 + 1000);
-    sessionStorage.setItem("OTP", OTP);
-    console.log("Generated OTP:", OTP);
+    secureLocalStorage.setItem("SecureCode", OTP);
   };
 
   // Prevent Refresh
   const handlePageReload = (event) => {
-    if (window.secureLocalStorage.length > 0 || window.sessionStorage.length > 0) {
+    if (window.secureLocalStorage.length > 0 || window.secureLocalStorage.length > 0) {
       const isConfirmed = confirm('You have unsaved data. Are you sure you want to leave?');
       if (isConfirmed) {
         // clearStorage();
@@ -38,9 +37,9 @@ const EmailVerification = () => {
 
   const clearStorage = () => {
     // secureLocalStorage.clear();
-    // sessionStorage.clear();
-    secureLocalStorage.setItem('email', sessionStorage.getItem('email'));
-    // sessionStorage.removeItem('OTP')
+    // secureLocalStorage.clear();
+    secureLocalStorage.setItem('email', secureLocalStorage.getItem('email'));
+    // secureLocalStorage.removeItem('OTP')
     // Redirect to the login page
     window.location.href = '/Login';
   };
@@ -57,10 +56,10 @@ const EmailVerification = () => {
 
   // Connecting Backend
   function nagigateToOtp() {
-    if (sessionStorage.getItem('email')) {
+    if (secureLocalStorage.getItem('email')) {
       axios
         .post(`${BACKEND_HOST}/recovery`, {
-          OTP: sessionStorage.getItem('OTP'),
+          OTP: secureLocalStorage.getItem('SecureCode'),
           recipient_email: secureLocalStorage.getItem('email'),
         })
         .then((res) => {
@@ -104,17 +103,13 @@ const EmailVerification = () => {
 
     if (index === 3) {
       const enteredOTP = parseInt(newOTPinput.join(""), 10);
-      const storedOTP = parseInt(sessionStorage.getItem("OTP"));
-      console.log("enteredOTP:", enteredOTP);
-      console.log("storedOTP:", storedOTP);
+      const storedOTP = parseInt(secureLocalStorage.getItem("SecureCode"));
       if (enteredOTP === storedOTP) {
         // Redirect to the password reset page if the OTP matches
-        sessionStorage.clear();
-        sessionStorage.setItem('reset', 1);
-        console.log("OTP matches! Redirecting to password reset page...");
+        secureLocalStorage.clear();
+        secureLocalStorage.setItem('reset', 1);
         navigate("/password-reset");
       } else {
-        console.log("OTP did not match...");
         toast.error("OTP did not match", {
           position: "top-center",
           autoClose: 1000,
@@ -126,7 +121,7 @@ const EmailVerification = () => {
           theme: "light",
           transition: Bounce,
         });
-        sessionStorage.setItem('reset', 0);
+        secureLocalStorage.setItem('reset', 0);
       }
     }
   };

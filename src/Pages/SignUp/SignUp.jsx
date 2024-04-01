@@ -140,7 +140,7 @@ function SignUp() {
       // Handle the response from the backend
       if (data.status === 0) {
         // Handle user already exists
-        console.log('Response status is 0');
+        console.log('User already exists, Create an Account');
         secureLocalStorage.setItem('message', data.message);
         toast.error(secureLocalStorage.getItem("message"), {
           position: "top-center",
@@ -255,6 +255,7 @@ function SignUp() {
             autoClose={5000}
             hideProgressBar={false}
             newestOnTop={false}
+            limit={1}
             closeOnClick
             rtl={false}
             pauseOnFocusLoss

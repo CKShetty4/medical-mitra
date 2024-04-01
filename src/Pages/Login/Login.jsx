@@ -23,6 +23,7 @@ const Login = () => {
   const navigate = useNavigate();
   const login_credRef = useRef();
   const passwordRef = useRef();
+  const toastId = useRef(null)
   useEffect(() => {
     if (secureLocalStorage.getItem('status') === 1) {
       navigate('/');
@@ -33,12 +34,30 @@ const Login = () => {
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
-
+  const createToast = (type, message, duration = 1000) => {
+    toast[type](message, {
+      type,
+      isLoading: false,
+      position: "top-center",
+      duration,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+  }
+  const clearToast = () => {
+    toast.dismiss();
+    toast.clearWaitingQueue();
+  };
   function nagigateToOtp() {
+    toastId.current = toast.loading("Please Wait...")
     if (login_credRef.current.value) {
       const OTP = Math.floor(Math.random() * 9000 + 1000);
-      console.log(OTP);
-      sessionStorage.setItem('OTP', OTP);
+      secureLocalStorage.setItem('SecureCode', OTP);
       secureLocalStorage.setItem('email', login_credRef.current.value);
 
       fetch(`${BACKEND_HOST}/ForgotPassword/Email`, {
@@ -59,7 +78,10 @@ const Login = () => {
         })
         .then(data => {
           if (data.status === 1) {
-            toast.success(data.message, {
+            toast.update(toastId.current, {
+              render: data.message,
+              type: "success",
+                isLoading: false,
               position: "top-center",
               autoClose: 1000,
               hideProgressBar: false,
@@ -76,32 +98,13 @@ const Login = () => {
             }, 1500);
           }
           else {
-            toast.error(data.message, {
-              position: "top-center",
-              autoClose: 1000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "light",
-              transition: Bounce,
-            });
+            clearToast();
+            createToast('error', data.message);
           }
         })
         .catch(error => {
-          console.error(error);
-          toast.error(error.message, {
-            position: "top-center",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-          });
+          clearToast();
+  createToast('error', error.message);
         });
     }
     else {
@@ -236,6 +239,7 @@ const Login = () => {
             autoClose={5000}
             hideProgressBar={false}
             newestOnTop={false}
+            limit={1}
             closeOnClick
             rtl={false}
             pauseOnFocusLoss
@@ -248,6 +252,7 @@ const Login = () => {
             position="top-center"
             autoClose={4000}
             hideProgressBar={false}
+            limit={1}
             newestOnTop={false}
             closeOnClick
             rtl={false}

@@ -59,7 +59,7 @@ const WebinarAdmin = () => {
 
         if (!response.ok) {
           // If the response is not ok, handle the error here
-          const errorMessage = `An error occurred while fetching products: ${response.statusText}`;
+          const errorMessage = `An error occurred while fetching detail: ${response.statusText}`;
           console.error(errorMessage);
           return;
         }
@@ -68,7 +68,7 @@ const WebinarAdmin = () => {
         setUserdata(json.users);
       } catch (error) {
         // If an error occurs during the fetch request, handle it here
-        console.error('An error occurred while fetching products:', error);
+        console.error('An error occurred while fetching details:', error);
       }
     };
     getUserdata();
@@ -98,8 +98,7 @@ const WebinarAdmin = () => {
       })
       .then(data => {
         // Handle the response from the backend
-        console.log(data);
-        console.log('Title:', TitleRef, 'description: ', description);
+       
       })
       .catch(error => {
         // Handle any errors

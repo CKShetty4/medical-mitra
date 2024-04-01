@@ -20,12 +20,61 @@ function ResetPassword() {
   const handlePasswordChange = (password) => {
     setPassword(password);
   };
+  secureLocalStorage.removeItem("SecureCode");
   useEffect(() => {
     if (secureLocalStorage.getItem('status') === 1) {
-      navigate('/');
+      navigate('/Login');
     }
   }, [])
 
+/*  
+const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(`${BACKEND_HOST}/ForgotPassword/Reset`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        password: password
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        if (response.status === 409) {
+          throw new Error('Reset Already Done');
+        } else {
+          throw new Error('HTTP error ' + response.status);
+        }
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Handle the response from the backend/
+      } else {
+        // Handle successful registration
+        toast.success("Password Reset Successfully", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        setTimeout(() => {
+          navigate('/');
+        }, 1500);
+      }
+    })
+    .catch(error => {
+      // Handle any errors
+        secureLocalStorage.clear();
+    });
+  };
+*/
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(`${BACKEND_HOST}/ForgotPassword/Reset`, {
@@ -53,7 +102,7 @@ function ResetPassword() {
         console.error(error);
       });
     setTimeout(() => {
-      if (Number(secureLocalStorage.getItem('password')) === 1 && Number(secureLocalStorage.getItem('status')) === 1) {
+      if (Number(secureLocalStorage.getItem('password')) === 1 ) {
         toast.success("Reset Successfully", {
           position: "top-center",
           autoClose: 1000,
@@ -66,7 +115,7 @@ function ResetPassword() {
           transition: Bounce,
         });
         setTimeout(() => {
-          navigate('/');
+          navigate('/Login');
         }, 1500);
       }
       else if (Number(secureLocalStorage.getItem('password')) === 0) {
@@ -81,22 +130,8 @@ function ResetPassword() {
           theme: "light",
           transition: Bounce,
         });
-        secureLocalStorage.clear()
       }
-      else {
-        toast.error(secureLocalStorage.getItem("message"), {
-          position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        })
-        secureLocalStorage.clear()
-      }
+      
     }, 200);
 
   };
