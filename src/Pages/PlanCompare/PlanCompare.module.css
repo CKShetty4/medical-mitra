@@ -1,6 +1,7 @@
 .Images{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 .Premium{
     position: relative;
@@ -11,3 +12,23 @@
     left: 100px;
 
 }
+
+@media(max-width:930px){
+
+    .Images{
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+        align-items: center;
+    }
+    .Premium{
+        position: relative;
+    }
+    .Btn{
+        position: absolute;
+        bottom: 30px;
+        left: 100px;
+    
+    }
+}
+

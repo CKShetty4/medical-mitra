@@ -15,7 +15,7 @@ import $ from 'jquery';
 const WebinarAdmin = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    if (localStorage.getItem('type')==="free"||localStorage.getItem('type')==="premium") {
+    if (localStorage.getItem('type')!=="admin") {
       navigate('/Webinar');
     }
   }, [])
