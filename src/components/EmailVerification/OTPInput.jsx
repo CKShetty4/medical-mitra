@@ -12,7 +12,7 @@ const OTPInput = ({
       value={value}
       onChange={handleChange}
       maxLength={maxLength}
-type="text"
+      type="text"
       className={className}
     />
   );

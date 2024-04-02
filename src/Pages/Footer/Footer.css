@@ -1,84 +1,90 @@
-a.logo{
+a.logo {
     display: flex;
     color: var(--Aqua);
     font-weight: 800;
     font-size: 16px;
 }
-a.logo .yellow{
-    color:var(--SomeBlue);
+
+a.logo .yellow {
+    color: var(--SomeBlue);
 }
 
-footer .content-container{
+footer .content-container {
     padding: 50px 0;
     display: flex;
     justify-content: space-between;
 }
 
-footer a{
-    color: rgb(0, 0, 0,0.5);
+footer a {
+    color: rgb(0, 0, 0, 0.5);
 
 }
 
-footer .social-icons{
+footer .social-icons {
     display: flex;
-    gap:16px;
+    gap: 16px;
     margin: 24px 0;
 }
 
-footer .copyright{
-    font-family: "Alegreya",serif;
+footer .copyright {
+    font-family: "Alegreya", serif;
     font-weight: 400;
     padding: 30px;
     font-size: 16px;
     line-height: 22px;
-    color: hsl(0, 0%, 0%,0.1);
+    color: hsl(0, 0%, 0%, 0.1);
 }
 
-footer h3{
-    color:#000;
-    font-family:"Alegreya",serif;
-    font-weight:600;
-    font-size:16px;
+footer h3 {
+    color: #000;
+    font-family: "Alegreya", serif;
+    font-weight: 600;
+    font-size: 16px;
     margin: 0;
 }
 
-footer a:hover{
+footer a:hover {
     text-decoration: underline;
     color: #fff;
 }
 
-footer .links ul{
+footer .links ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-footer .links p{
-    color:rgb(0, 0, 0,0.5);
-    font-family:"Alegreya",serif;
-    font-weight:600;
-    font-size:16px;
+
+footer .links p {
+    color: rgb(0, 0, 0, 0.5);
+    font-family: "Alegreya", serif;
+    font-weight: 600;
+    font-size: 16px;
     margin: 0;
 }
-.IMG
-{
+
+.IMG {
     width: 30px;
     height: 30px;
 }
-footer .links ul li{
-    font-family:"Alegreya",serif;
-    font-weight:600;
-    font-size:16px;
-    margin:8px 16px;
+
+footer .links ul li {
+    font-family: "Alegreya", serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 8px 0px;
 }
-@media(max-width:720px){
-    footer .content-container{
+
+@media(max-width:720px) {
+    footer .content-container {
         gap: 40px;
         flex-direction: column;
     }
-    footer .social-icons{
+
+    footer .social-icons {
         margin-bottom: 0;
     }
-    footer{
+
+    footer {
         padding: 0 30px;
     }
 }

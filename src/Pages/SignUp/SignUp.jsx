@@ -9,7 +9,7 @@ import PasswordAndConfirmPasswordValidation from '../../components/PasswordVaild
 import { Link, useNavigate } from "react-router-dom";
 import { Logo, Close } from '../../images/index';
 import { BACKEND_HOST } from '../../Constants.js';
-import  secureLocalStorage  from  "react-secure-storage";
+import secureLocalStorage from "react-secure-storage";
 
 function SignUp() {
   const [name, setName] = useState('');
@@ -31,86 +31,6 @@ function SignUp() {
     }
   }, [])
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   fetch(`${BACKEND_HOST}/Register/`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //       name: nameRef.current.value,
-  //       email: emailRef.current.value,
-  //       phoneNumber: phoneNumberRef.current.value,
-  //       password: password
-  //     })
-  //   })
-  //     .then(response => {
-  //       if (!response.ok) {
-  //         throw new Error('HTTP error ' + response.status);
-  //       }
-  //       return response.json();
-  //     })
-  //     .then(data => {
-  //       // Handle the response from the backend
-  //       secureLocalStorage.setItem('message', data.message);
-  //       secureLocalStorage.setItem('status', data.status);
-  //       // secureLocalStorage.setItem('user', data.user);
-  //       // secureLocalStorage.setItem('type', data.type);
-  //     })
-  //     .catch(error => {
-  //       // Handle any errors
-  //       console.error(error);
-
-  //     });
-  //   setTimeout(() => {
-  //     if (Number(secureLocalStorage.getItem('password')) === 1 && Number(secureLocalStorage.getItem('status')) === 1) {
-  //       toast.success("Registered Successfully", {
-  //         position: "top-center",
-  //         autoClose: 1000,
-  //         hideProgressBar: false,
-  //         closeOnClick: true,
-  //         pauseOnHover: true,
-  //         draggable: true,
-  //         progress: undefined,
-  //         theme: "light",
-  //         transition: Bounce,
-  //       });
-  //       setTimeout(() => {
-  //         navigate('/');
-  //       }, 1500);
-  //     }
-  //     else if (Number(secureLocalStorage.getItem('password')) === 0) {
-  //       toast.error("Please check the Password", {
-  //         position: "top-center",
-  //         autoClose: 1000,
-  //         hideProgressBar: false,
-  //         closeOnClick: true,
-  //         pauseOnHover: true,
-  //         draggable: true,
-  //         progress: undefined,
-  //         theme: "light",
-  //         transition: Bounce,
-  //       });
-  //       secureLocalStorage.clear()
-  //     }
-  //     else {
-  //       toast.error(secureLocalStorage.getItem("message"), {
-  //         position: "top-center",
-  //         autoClose: 1000,
-  //         hideProgressBar: false,
-  //         closeOnClick: true,
-  //         pauseOnHover: true,
-  //         draggable: true,
-  //         progress: undefined,
-  //         theme: "light",
-  //         transition: Bounce,
-  //       })
-  //       secureLocalStorage.clear()
-  //     }
-  //   }, 200);
-
-  // };
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(`${BACKEND_HOST}/Register/`, {
@@ -125,78 +45,78 @@ function SignUp() {
         password: password
       })
     })
-    .then(response => {
-      if (!response.ok) {
-        if (response.status === 409) {
-          console.log('Response status is 409');
-          throw new Error('User already exists');
-        } else {
-          throw new Error('HTTP error ' + response.status);
+      .then(response => {
+        if (!response.ok) {
+          if (response.status === 409) {
+            console.log('Response status is 409');
+            throw new Error('User already exists');
+          } else {
+            throw new Error('HTTP error ' + response.status);
+          }
         }
-      }
-      return response.json();
-    })
-    .then(data => {
-      // Handle the response from the backend
-      if (data.status === 0) {
-        // Handle user already exists
-        console.log('User already exists, Create an Account');
-        secureLocalStorage.setItem('message', data.message);
-        toast.error(secureLocalStorage.getItem("message"), {
-          position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-        secureLocalStorage.clear();
-      } else {
-        // Handle successful registration
-    
-        secureLocalStorage.setItem('user', name);
-        secureLocalStorage.setItem('type', 'free');
-        toast.success("Registered Successfully", {
-          position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-        setTimeout(() => {
-          navigate('/');
-        }, 1500);
-      }
-    })
-    .catch(error => {
-      // Handle any errors
-      if (error.message === 'User already exists') {
-        // Handle user already exists
-        secureLocalStorage.setItem('message', error.message);
-        toast.error(secureLocalStorage.getItem("message"), {
-          position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-        secureLocalStorage.clear();
-      } else {
-        // Handle any other errors
-        console.error(error);
-      }
-    });
+        return response.json();
+      })
+      .then(data => {
+        // Handle the response from the backend
+        if (data.status === 0) {
+          // Handle user already exists
+          // console.log('User already exists, Create an Account');
+          secureLocalStorage.setItem('message', data.message);
+          toast.error(secureLocalStorage.getItem("message"), {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+          secureLocalStorage.clear();
+        } else {
+          // Handle successful registration
+
+          secureLocalStorage.setItem('user', name);
+          secureLocalStorage.setItem('type', 'free');
+          toast.success("Registered Successfully", {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+          setTimeout(() => {
+            navigate('/');
+          }, 1500);
+        }
+      })
+      .catch(error => {
+        // Handle any errors
+        if (error.message === 'User already exists') {
+          // Handle user already exists
+          secureLocalStorage.setItem('message', error.message);
+          toast.error(secureLocalStorage.getItem("message"), {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+          secureLocalStorage.clear();
+        } else {
+          // Handle any other errors
+          // console.error(error);
+        }
+      });
   };
   return (
     <>
@@ -211,12 +131,12 @@ function SignUp() {
                   <Link to="/"><img src={Close} width={25} /></Link></div>
                 <br />
                 <div className={styles.Arranging}>
-                  <div className={styles.Image}><h1 className={styles.Head}>Register</h1><br /> 
+                  <div className={styles.Image}><h1 className={styles.Head}>Register</h1><br />
                     <img src={Logo} width={250} />
-                    
+
                   </div>
                   <div className="Form">
-                   <br /> 
+                    <br />
                     <form action="" onSubmit={handleSubmit}>
                       <div className={styles.form_control}>
                         <label htmlFor="Name">Username</label>

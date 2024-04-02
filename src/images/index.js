@@ -54,4 +54,4 @@ import FreePro1 from "./FreePro1.png"
 import FreePro2 from "./FreePro2.png"
 import PaymentGatewayImage from "./PaymentGateway.png"
 import Notice from "./Notice.png"
-export {MM4999,MM4999mob,lecture,SignUP,message,ContactService,telephone,Contacting,degree,medicalschool,worldwide,counseling,deadline,contract,contactlist,tracking,Close,corner,MMPro,Notice,Insta,Linkdin,Logo,Mail,WhatsappLogo,logo,vision,mission,Values,Doctor,TextBG2,TextBG,Picture1,Youtube,Facebook,bg1,bg2,bg3,bg4,bg5,bg6,bg7,bg8,bg9,bg10,bg11,bg12,schedule,menuIcon,LogoCropped,FreePro1,FreePro2,PaymentGatewayImage}
+export { MM4999, MM4999mob, lecture, SignUP, message, ContactService, telephone, Contacting, degree, medicalschool, worldwide, counseling, deadline, contract, contactlist, tracking, Close, corner, MMPro, Notice, Insta, Linkdin, Logo, Mail, WhatsappLogo, logo, vision, mission, Values, Doctor, TextBG2, TextBG, Picture1, Youtube, Facebook, bg1, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10, bg11, bg12, schedule, menuIcon, LogoCropped, FreePro1, FreePro2, PaymentGatewayImage }

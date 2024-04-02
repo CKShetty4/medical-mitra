@@ -33,10 +33,10 @@
     color: hsl(0, 0%, 30%);
 }
 
-.cards{
-display: flex;
-flex-direction: column;
-align-items: center;
+.cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*Tablet Version*/
@@ -52,35 +52,38 @@ align-items: center;
         height: 50%;
         align-items: center;
         display: inline-block;
-        
+
     }
 }
+
 @media(max-width:720px) {
     .card {
         padding: 15px;
         padding-left: 20px;
         padding-right: 20px;
-        margin: 10px 0; 
+        margin: 10px 0;
         max-width: 90%;
         height: 50%;
     }
 }
+
 @media(max-width:600px) {
     .card {
         padding: 15px;
         padding-left: 30px;
         padding-right: 30px;
-        margin: 5px 0; 
+        margin: 5px 0;
         max-width: 95%;
         height: 50%;
     }
 }
+
 @media(max-width:500px) {
     .card {
         padding: 15px;
         padding-left: 30px;
         padding-right: 30px;
-        margin: 4px 0; 
+        margin: 4px 0;
         max-width: 100%;
         height: 50%;
     }

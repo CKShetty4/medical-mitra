@@ -10,12 +10,12 @@ import Paper from '@mui/material/Paper';
 import NavBar from '../../components/NavBar/NavBar'
 import { BACKEND_HOST } from '../../Constants.js';
 import $ from 'jquery';
-import  secureLocalStorage  from  "react-secure-storage";
+import secureLocalStorage from "react-secure-storage";
 // export const Detailed = () => { }
 const WebinarAdmin = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    if (secureLocalStorage.getItem('type')!=="admin") {
+    if (secureLocalStorage.getItem('type') !== "admin") {
       navigate('/Webinar');
     }
   }, [])
@@ -60,7 +60,7 @@ const WebinarAdmin = () => {
         if (!response.ok) {
           // If the response is not ok, handle the error here
           const errorMessage = `An error occurred while fetching detail: ${response.statusText}`;
-          console.error(errorMessage);
+          // console.error(errorMessage);
           return;
         }
 
@@ -68,7 +68,7 @@ const WebinarAdmin = () => {
         setUserdata(json.users);
       } catch (error) {
         // If an error occurs during the fetch request, handle it here
-        console.error('An error occurred while fetching details:', error);
+        // console.error('An error occurred while fetching details:', error);
       }
     };
     getUserdata();
@@ -98,11 +98,11 @@ const WebinarAdmin = () => {
       })
       .then(data => {
         // Handle the response from the backend
-       
+
       })
       .catch(error => {
         // Handle any errors
-        console.error(error);
+        // console.error(error);
       });
   };
   const handleToggleView = () => {
@@ -118,13 +118,13 @@ const WebinarAdmin = () => {
         Number of Users: {userData && userData.length}
       </h5>
       <p className={styles.Notice}>Hello {secureLocalStorage.getItem('user')},<br />This page empowers you to manage upcoming seminars and user data with ease. </p>
- <ul className={styles.Notice}><li><strong>Manage Users: </strong> The current user count is displayed above, and click on the button labeled "View User List" to access the user list for further management options.</li>
-<li><strong>Host a Seminar: </strong> Toggle the button labeled "Host Webinar," to switch back to the seminar hosting interface.</li>
-<li><strong>Designed for Efficiency: </strong>
-This streamlined admin interface prioritizes your time by allowing you to quickly manage seminars and users.</li></ul> 
-<p className={styles.Notice}>
-Need Help?
-Our friendly support team is here to assist you. If you have any questions or require further guidance, don't hesitate to contact us at dev.ckshetty@gmail.com or harshithr2004@gmail.com.</p>
+      <ul className={styles.Notice}><li><strong>Manage Users: </strong> The current user count is displayed above, and click on the button labeled "View User List" to access the user list for further management options.</li>
+        <li><strong>Host a Seminar: </strong> Toggle the button labeled "Host Webinar," to switch back to the seminar hosting interface.</li>
+        <li><strong>Designed for Efficiency: </strong>
+          This streamlined admin interface prioritizes your time by allowing you to quickly manage seminars and users.</li></ul>
+      <p className={styles.Notice}>
+        Need Help?
+        Our friendly support team is here to assist you. If you have any questions or require further guidance, don't hesitate to contact us at dev.ckshetty@gmail.com or harshithr2004@gmail.com.</p>
       <br />
       <button className={styles.button} onClick={handleToggleView}>
         {toggleView ? 'View User List' : 'Host Webinar'}
@@ -192,41 +192,41 @@ Our friendly support team is here to assist you. If you have any questions or re
             </Grid>
           </Grid>
         </div>
-        )
+      )
         :
         (
           <div className="container">
-              <div className="row">
-                <div className="col-md-12">
-                  <h5 className={styles.HeadingStyles}>User Data</h5>
-                  <table className="table table-bordered ">
-                    <thead>
-                      <tr>
-                        <th className={styles.tableHeader}>Reg. No</th>
-                        <th className={styles.tableHeader}>Username</th>
-                        <th className={styles.tableHeader}>Email</th>
-                        <th className={styles.tableHeader}>Phone No</th>
-                        <th className={styles.tableHeader}>User Type</th>
+            <div className="row">
+              <div className="col-md-12">
+                <h5 className={styles.HeadingStyles}>User Data</h5>
+                <table className="table table-bordered ">
+                  <thead>
+                    <tr>
+                      <th className={styles.tableHeader}>Reg. No</th>
+                      <th className={styles.tableHeader}>Username</th>
+                      <th className={styles.tableHeader}>Email</th>
+                      <th className={styles.tableHeader}>Phone No</th>
+                      <th className={styles.tableHeader}>User Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {userData && userData.map((user) => (
+                      <tr key={user.id}>
+                        <td>{user.id} </td>
+                        <td>{user.name} </td>
+                        <td>{user.email} </td>
+                        <td>{user.phonenumber} </td>
+                        <td>{user.type} </td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {userData && userData.map((user) => (
-                        <tr key={user.id}>
-                          <td>{user.id} </td>
-                          <td>{user.name} </td>
-                          <td>{user.email} </td>
-                          <td>{user.phonenumber} </td>
-                          <td>{user.type} </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
+          </div>
         )}
       <br /><br /><br /><br />
-      
+
     </>
   )
 }

@@ -10,4 +10,4 @@ import WebinarAdmin from "./WebinarAdmin/WebinarAdmin"
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy"
 import PlanCompare from "./PlanCompare/PlanCompare"
 
-export {About,Footer,PlanCompare,WebinarAdmin,Webinar,Contact,UGNEET,PGNEET,Login,SignUp,PrivacyPolicy}
+export { About, Footer, PlanCompare, WebinarAdmin, Webinar, Contact, UGNEET, PGNEET, Login, SignUp, PrivacyPolicy }

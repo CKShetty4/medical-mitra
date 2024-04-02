@@ -1,6 +1,6 @@
 :root {
     --darkblue-color: #003369ff;
-    --Aqua: hsl(179, 100%, 41%,50%);
+    --Aqua: hsl(179, 100%, 41%, 50%);
     --Grey-color: #B4B5B6;
     --DarkColor: #181E1E;
     --SomeBlue: #065481;
@@ -21,7 +21,7 @@ body {
     font-family: "Inter", sans-serif;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 
 }
@@ -89,12 +89,14 @@ section .content-container {
     section h2 {
         font-size: 24px;
     }
+
     .Sizing {
         max-width: 50%;
         margin: 0 auto;
     }
-    section h2::after{
-        width:50px;
-        bottom:0;
+
+    section h2::after {
+        width: 50px;
+        bottom: 0;
     }
 }

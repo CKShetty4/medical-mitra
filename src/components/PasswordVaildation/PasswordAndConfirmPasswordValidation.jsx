@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, forwardRef } from "react";
 import PasswordInputField from "./PasswordInputField";
 import ConfirmPasswordInputField from "./ConfirmPasswordInputField";
-import  secureLocalStorage  from  "react-secure-storage";
+import secureLocalStorage from "react-secure-storage";
 
 const PasswordAndConfirmPasswordValidation = forwardRef((props, ref) => {
     const passwordRef = useRef(null);
@@ -65,10 +65,10 @@ const PasswordAndConfirmPasswordValidation = forwardRef((props, ref) => {
 
             if (passwordInput.confirmPassword !== passwordInput.password) {
                 setConfirmPasswordError("Confirm password is not matched");
-                secureLocalStorage.setItem('password',0);
+                secureLocalStorage.setItem('password', 0);
             } else {
                 setConfirmPasswordError("");
-                secureLocalStorage.setItem('password',1);
+                secureLocalStorage.setItem('password', 1);
             }
 
         }
@@ -84,7 +84,7 @@ const PasswordAndConfirmPasswordValidation = forwardRef((props, ref) => {
     //     passwordRef.current.focus();
     //   }
     // }, [PasswordError]);
-    
+
     return (
         <>
             <PasswordInputField ref={passwordRef} handlePasswordChange={handlePasswordChange} handleValidation={handleValidation} passwordValue={passwordInput.password} passwordError={passwordError} />

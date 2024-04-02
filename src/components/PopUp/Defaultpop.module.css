@@ -1,19 +1,22 @@
-.Header{
+.Header {
     font-family: 'Alegreya', sans-serif;
     font-size: 40px;
     font-weight: bold;
     color: var(--darkblue-color);
 }
-.SubHeader{
-    font-family: 'Alegreya',sans-serif;
+
+.SubHeader {
+    font-family: 'Alegreya', sans-serif;
     color: var(--SomeBlue);
 }
-.Body{
+
+.Body {
     font-family: 'Alegreya', sans-serif;
     font-size: 16px;
     text-align: justify;
 }
-.PS{
+
+.PS {
     font-family: 'Alegreya', sans-serif;
     font-size: 12px;
 }

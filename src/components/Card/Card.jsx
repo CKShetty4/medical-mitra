@@ -4,11 +4,11 @@ import { mission, vision, Values } from "../../images"
 const Card = () => {
   return (
     <><div className="cards">
-     <div className="card">
-         <img src={mission} alt="Mision Icon made by Freepik" className="card-image" />
-       <h2 className="card-title">Our Mission</h2>
+      <div className="card">
+        <img src={mission} alt="Mision Icon made by Freepik" className="card-image" />
+        <h2 className="card-title">Our Mission</h2>
         <p className="card-text">We empower students to find their ideal medical or engineering course and college in India through comprehensive admission support and expert career guidance.</p>
-       </div>
+      </div>
       <div className="card">
         <img src={vision} alt="Mision Icon made by Freepik" className="card-image" />
         <h2 className="card-title">Our Vission</h2>

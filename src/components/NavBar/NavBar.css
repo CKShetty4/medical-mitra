@@ -56,6 +56,7 @@ a.logo {
 a.logo .Aqua {
     color: var(--Aqua);
 }
+
 a.logo .DarkBlue {
     color: var(--SomeBlue);
 }
@@ -102,7 +103,7 @@ a.logo .LogoName {
         position: fixed;
         left: 0;
         right: 0;
-        top:0;
+        top: 0;
         padding: 60px 32px;
         background: rgba(241, 255, 255, 0.87);
         z-index: 600;

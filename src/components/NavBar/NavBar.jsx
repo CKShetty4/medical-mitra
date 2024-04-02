@@ -1,9 +1,9 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import "./NavBar.css"
-import { menuIcon, Close,LogoCropped } from "../../images"
+import { menuIcon, Close, LogoCropped } from "../../images"
 import { Link, useNavigate } from "react-router-dom";
 import { NavLink } from 'react-router-dom';
-import  secureLocalStorage  from  "react-secure-storage";
+import secureLocalStorage from "react-secure-storage";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const NavBar = () => {
       secureLocalStorage.getItem('user') ?
         <><ul>
           <li><NavLink to="/About" >About</NavLink></li>
-          {secureLocalStorage.getItem('type') === 'free' ||secureLocalStorage.getItem('type') ==='premium' ?
+          {secureLocalStorage.getItem('type') === 'free' || secureLocalStorage.getItem('type') === 'premium' ?
             <>
               <li><NavLink to="/Webinar" >Webinar</NavLink></li>
             </>
@@ -33,9 +33,9 @@ const NavBar = () => {
               <li><NavLink to="/WebinarAdmin" >Webinar</NavLink></li>
             </>}
           <li><NavLink to="/Contact" >Contact</NavLink></li>
-          {secureLocalStorage.getItem('type') === 'free'?
+          {secureLocalStorage.getItem('type') === 'free' ?
             <>
-            <li><NavLink to="/PremiumDetail">Buy Now</NavLink></li>
+              <li><NavLink to="/PremiumDetail">Buy Now</NavLink></li>
             </>
             :
             <>
@@ -64,32 +64,32 @@ const NavBar = () => {
         secureLocalStorage.getItem('user') ?
           <><ul className="menu_items">
 
-            <li><a href="/About"  onClick={() => setIsActive(false)}>About</a></li>
+            <li><a href="/About" onClick={() => setIsActive(false)}>About</a></li>
             {secureLocalStorage.getItem('type') === 'free' ?
               <>
-                <li><a href="/Webinar"  onClick={() => setIsActive(false)}>Webinar</a></li>
+                <li><a href="/Webinar" onClick={() => setIsActive(false)}>Webinar</a></li>
               </>
               :
               <>
-                <li><a href="/WebinarAdmin"  onClick={() => setIsActive(false)}>Webinar</a></li>
+                <li><a href="/WebinarAdmin" onClick={() => setIsActive(false)}>Webinar</a></li>
               </>}
-            <li><a href="/Contact"  onClick={() => setIsActive(false)}>Contact</a></li>
-            {secureLocalStorage.getItem('type') === 'free'?
-            <>
-            <li><a href="/PremiumDetail"  onClick={() => setIsActive(false)}>Become a Premium User</a></li>
-            </>
-            :
-            <>
-            </>}
+            <li><a href="/Contact" onClick={() => setIsActive(false)}>Contact</a></li>
+            {secureLocalStorage.getItem('type') === 'free' ?
+              <>
+                <li><a href="/PremiumDetail" onClick={() => setIsActive(false)}>Become a Premium User</a></li>
+              </>
+              :
+              <>
+              </>}
             <li><a href="" onClick={logout} >LogOut</a></li>
           </ul></>
           :
           <>
             <ul className="menu_items">
-              <li><a href="/About"  onClick={() => setIsActive(false)}>About</a></li>
-              <li><a href="/Contact"  onClick={() => setIsActive(false)}>Contact</a></li>
-              <li><a href="/Login"  onClick={() => setIsActive(false)}>Webinar</a></li>
-              <li><a href="/Login"  onClick={() => setIsActive(false)}>SignUp/Login</a></li>
+              <li><a href="/About" onClick={() => setIsActive(false)}>About</a></li>
+              <li><a href="/Contact" onClick={() => setIsActive(false)}>Contact</a></li>
+              <li><a href="/Login" onClick={() => setIsActive(false)}>Webinar</a></li>
+              <li><a href="/Login" onClick={() => setIsActive(false)}>SignUp/Login</a></li>
             </ul>
           </>
       }

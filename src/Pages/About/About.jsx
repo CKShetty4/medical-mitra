@@ -1,13 +1,13 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import AboutDetail from "../../components/AboutDetail/AboutDetail"
 import { WhatsappLogo } from '../../images'
 import Footer from '../Footer/Footer'
 
 const About = () => {
-  useEffect(()=>{
-    window.scroll(0,0);
-  },[])
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [])
   return (
     <>
       <div className="wrapper">
@@ -20,7 +20,7 @@ const About = () => {
           <img src={WhatsappLogo} width="60" />
         </a>
       </div>
-      <Footer/>
+      <Footer />
     </>
   )
 }

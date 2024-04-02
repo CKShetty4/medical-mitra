@@ -1,34 +1,37 @@
-.Images{
+.Images {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-.Premium{
+
+.Premium {
     position: relative;
 }
-.Btn{
+
+.Btn {
     position: absolute;
     bottom: 30px;
     left: 100px;
 
 }
 
-@media(max-width:930px){
+@media(max-width:930px) {
 
-    .Images{
+    .Images {
         display: flex;
         flex-direction: column;
         padding: 0 20px;
         align-items: center;
     }
-    .Premium{
+
+    .Premium {
         position: relative;
     }
-    .Btn{
+
+    .Btn {
         position: absolute;
         bottom: 30px;
         left: 100px;
-    
+
     }
 }
-

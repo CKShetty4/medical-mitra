@@ -6,7 +6,7 @@ import { Bounce, ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { BACKEND_HOST } from '../../Constants.js';
-import  secureLocalStorage  from  "react-secure-storage";
+import secureLocalStorage from "react-secure-storage";
 const EmailVerification = () => {
   const [OTPinput, setOTPinput] = useState(["", "", "", ""]);
   const [timerCount, setTimer] = useState(60);
@@ -25,7 +25,7 @@ const EmailVerification = () => {
       const isConfirmed = confirm('You have unsaved data. Are you sure you want to leave?');
       if (isConfirmed) {
         // clearStorage();
-        console.log('Data cleared');
+
       } else {
         event.preventDefault();
         event.returnValue = '';
@@ -63,7 +63,6 @@ const EmailVerification = () => {
           recipient_email: secureLocalStorage.getItem('email'),
         })
         .then((res) => {
-          console.log(res.data.message);
           toast.success(`${res.data.message}`, {
             position: "top-center",
             autoClose: 1000,
@@ -77,7 +76,6 @@ const EmailVerification = () => {
           });
         })
         .catch(data => {
-          console.log(data.message);
           data.message
         });
       return;

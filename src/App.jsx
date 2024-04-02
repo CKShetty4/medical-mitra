@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { Header, Info, Footer,Services } from './components'
+import { Header, Info, Footer, Services } from './components'
 import { WhatsappLogo } from './images'
 import Defaultpop from './components/PopUp/Defaultpop'
-import  secureLocalStorage  from  "react-secure-storage";
+import secureLocalStorage from "react-secure-storage";
 const App = () => {
   useEffect(() => {
     window.scroll(0, 0);

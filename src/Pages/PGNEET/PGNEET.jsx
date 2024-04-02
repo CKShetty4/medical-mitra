@@ -1,13 +1,13 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import "./PGNEET.css"
 import NavBar from '../../components/NavBar/NavBar'
 import { Logo, } from "../../images"
 import Footer from '../Footer/Footer'
 
 const PGNEET = () => {
-    useEffect(()=>{
-        window.scroll(0,0);
-      },[])
+    useEffect(() => {
+        window.scroll(0, 0);
+    }, [])
     return (
         <><div className="wrapper"><NavBar />
             <br /><br /><br /><br />
@@ -20,21 +20,21 @@ const PGNEET = () => {
                     <br /><br /><br />
                     <div>
                         <div className="content1">
-                    <img src={Logo} alt="Logo" width={100} />
-                    </div><br/>
+                            <img src={Logo} alt="Logo" width={100} />
+                        </div><br />
                         <h2 className="about-title">We guide you every step of the way towards achieving your desired outcome.</h2>
                     </div>
                     <br />
 
-                    <br/>
+                    <br />
                     <div>
                         <p className="about-text">Exciting news! We're upgrading our services in the coming days. To ensure you get the best results.</p>
                     </div>
                 </div>
                 <br /><br />
-            </div>                
+            </div>
             <div></div>
-        </div><Footer/></>
+        </div><Footer /></>
     )
 }
 

@@ -1,19 +1,23 @@
-.container{
+.container {
     margin: 0 75px;
 }
-.container h1{
+
+.container h1 {
     color: var(--darkblue-color);
     font-family: 'Times New Roman', Times, serif;
 }
-.container h3{
+
+.container h3 {
     color: var(--darkblue-color);
     font-family: 'Times New Roman', Times, serif;
 }
-.container h5{
+
+.container h5 {
     color: var(--darkblue-color);
     font-family: 'Times New Roman', Times, serif;
 }
-.container h1{
+
+.container h1 {
     color: var(--darkblue-color);
     font-family: 'Times New Roman', Times, serif;
 }

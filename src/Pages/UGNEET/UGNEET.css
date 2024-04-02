@@ -15,6 +15,7 @@
     align-self: center;
     text-align: center;
 }
+
 .pgneet .about-title2 {
     font-family: "Alegreya", sans-serif;
     margin: 100 50;
@@ -39,14 +40,14 @@
 .pgneet .wrapper .MM499 img {
     width: 50vw;
     height: 90%;
-    margin : 0 auto;
+    margin: 0 auto;
 }
 
 .pgneet .wrapper .MM499mob {
     display: none;
 }
 
-a.logo .yellow {    
+a.logo .yellow {
     color: var(--SomeBlue);
 }
 

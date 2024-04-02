@@ -12,7 +12,6 @@ const PasswordInputField = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
     focusInput() {
       inputRef.current.focus();
-   console.log(inputRef.current.value);
     },
     showPassword() {
       setPasswordShown(!passwordShown);

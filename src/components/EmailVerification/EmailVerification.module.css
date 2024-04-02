@@ -8,19 +8,19 @@
   border: 1px solid #d1d5db;
   border-radius: 0.5rem;
   outline: none;
-  }
-  
-  .formContainer {
-    background-color: aqua;
+}
+
+.formContainer {
+  background-color: aqua;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   height: 100vh;
-  }
-  
-  .formControl {
-    width: 100%;
+}
+
+.formControl {
+  width: 100%;
   max-width: 300px;
   background-color: white;
   padding: 20px;
@@ -28,10 +28,10 @@
   flex-direction: row;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   margin: 10px 0;
-  }
+}
 
-  .OTPField{
-    display: flex;
+.OTPField {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -39,64 +39,65 @@
   gap: 5px;
   width: 1rem;
   max-width: 1rem;
-  }
-  
-  .formInput {
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0.75rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.75rem;
-    background-color: white;
-    font-size: 1.25rem;
-    box-sizing: border-box;
-  }
-  
-  .formInput:focus {
-    background-color: #f3f4f6;
-    box-shadow: 0 0 0 1px #90cdf4;
-    outline: none;
-  }
-  
-  .formInput:focus:focus-within {
-    box-shadow: 0 0 0 1px #4e73df;
-  }
-  
-  .formInput.rounded-r-xl {
-    border-top-right-radius: 1.5rem;
-    border-bottom-right-radius: 1.5rem;
-  }
-  .form-button {
-    background: #0070f3;
-    color: white;
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    font-size: 0.8rem;
-    transition: all 0.2s;
-  }
-  
-  .form-button:hover {
-    background: #0056b3;
-  }
-  
-  .disabled-button {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-  
-  .resend-otp-link {
-    text-decoration: none;
-    color: #0070f3;
-  }
-  
-  .resend-otp-link:hover {
-    text-decoration: underline;
-  }
+}
+
+.formInput {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  background-color: white;
+  font-size: 1.25rem;
+  box-sizing: border-box;
+}
+
+.formInput:focus {
+  background-color: #f3f4f6;
+  box-shadow: 0 0 0 1px #90cdf4;
+  outline: none;
+}
+
+.formInput:focus:focus-within {
+  box-shadow: 0 0 0 1px #4e73df;
+}
+
+.formInput.rounded-r-xl {
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+.form-button {
+  background: #0070f3;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.form-button:hover {
+  background: #0056b3;
+}
+
+.disabled-button {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.resend-otp-link {
+  text-decoration: none;
+  color: #0070f3;
+}
+
+.resend-otp-link:hover {
+  text-decoration: underline;
+}

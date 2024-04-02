@@ -7,7 +7,7 @@ import { Doctor, schedule } from '../../images';
 import Footer from '../Footer/Footer'
 import Button from '../../components/Button/Button';
 import { BACKEND_HOST } from '../../Constants.js';
-import  secureLocalStorage  from  "react-secure-storage";
+import secureLocalStorage from "react-secure-storage";
 
 const Webinar = () => {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ const Webinar = () => {
         if (!response.ok) {
           // If the response is not ok, handle the error here
           const errorMessage = `An error occurred while fetching products: ${response.statusText}`;
-          console.error(errorMessage);
+          // console.error(errorMessage);
           return;
         }
 
@@ -39,7 +39,7 @@ const Webinar = () => {
         setwebData(json);
       } catch (error) {
         // If an error occurs during the fetch request, handle it here
-        console.error('An error occurred while fetching products:', error);
+        // console.error('An error occurred while fetching products:', error);
       }
     };
     getWebData();
@@ -71,7 +71,7 @@ const Webinar = () => {
             {webData ? (
               webData.statusFree === "active" ? (
                 <>
-                {/* Active Conditon USERS */}
+                  {/* Active Conditon USERS */}
                   {
                     secureLocalStorage.getItem('type') === 'free' ?
                       <>

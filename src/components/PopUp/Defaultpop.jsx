@@ -24,7 +24,7 @@ const Defaultpop = () => {
                 display: 'flex', justifyContent: 'left', padding: '0 20%'
             }}>
                 <Link to="/SignUp"> <Button text="Sign In | Create Free Account" /></Link></div>
-                <br />
+            <br />
             <p className={styles.PS}>By signing up, you'll also gain access to exclusive webinars on how to crack NEET and succeed in medical school.</p>
         </PopUp>
     )

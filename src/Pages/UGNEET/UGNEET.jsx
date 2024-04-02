@@ -1,18 +1,18 @@
-import React,{useEffect} from 'react'
+import React, { useEffect } from 'react'
 import "./UGNEET.css"
 import NavBar from '../../components/NavBar/NavBar'
-import { Logo,degree,medicalschool,worldwide,counseling, deadline, contract,lecture, contactlist, tracking, MM4999, MM4999mob, MMPro } from "../../images"
+import { Logo, degree, medicalschool, worldwide, counseling, deadline, contract, lecture, contactlist, tracking, MM4999, MM4999mob, MMPro } from "../../images"
 import Footer from '../Footer/Footer'
 import Grid from '@mui/material/Grid';
 import Button from "../../components/Button/Button"
 import Paper from '@mui/material/Paper';
 import { Link } from "react-router-dom";
-import  secureLocalStorage  from  "react-secure-storage";
+import secureLocalStorage from "react-secure-storage";
 
 const UGNEET = () => {
-  useEffect(()=>{
-    window.scroll(0,0);
-  },[])
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [])
   return (
     <>
       <div className="wrapper"><NavBar />
@@ -65,41 +65,41 @@ const UGNEET = () => {
               </Grid>
             </Grid>
             <br />
-            {secureLocalStorage.getItem('type') === 'premium'||secureLocalStorage.getItem('type') === 'admin'?
-            <>
-            
-            </>
-            :
-            <>
-            <div className="MM499">
-            <img src={MM4999} alt="" /></div>
-            <div className="MM499mob">
-            <img src={MM4999mob} alt="" /></div>
-            <div className="MM499">
-            <img src={MMPro} alt="" /></div>
-            <div className="MM499mob">
-            <img src={MMPro} alt="" /></div>
-            <br /><br />
-            <div style={{
-                        display: 'flex', justifyContent: 'center', padding: '0'
-                      }}>
+            {secureLocalStorage.getItem('type') === 'premium' || secureLocalStorage.getItem('type') === 'admin' ?
+              <>
+
+              </>
+              :
+              <>
+                <div className="MM499">
+                  <img src={MM4999} alt="" /></div>
+                <div className="MM499mob">
+                  <img src={MM4999mob} alt="" /></div>
+                <div className="MM499">
+                  <img src={MMPro} alt="" /></div>
+                <div className="MM499mob">
+                  <img src={MMPro} alt="" /></div>
+                <br /><br />
+                <div style={{
+                  display: 'flex', justifyContent: 'center', padding: '0'
+                }}>
                   <Link to="/PremiumDetail"><Button text="Buy Now" /></Link></div>
-                  <br /><br />
-            </>}
-            
+                <br /><br />
+              </>}
+
             <br />
             <div className="content1">
-                <h2 className="about-title">While mastering NEET requires dedication, securing a seat is even more competitive. </h2>
-                <div className="content"><h3 className="about-title2">And How  <a href="/" className="logo"><h3 className="LogoName">
+              <h2 className="about-title">While mastering NEET requires dedication, securing a seat is even more competitive. </h2>
+              <div className="content"><h3 className="about-title2">And How  <a href="/" className="logo"><h3 className="LogoName">
                 Medical<span className="yellow">Mitra</span></h3></a> makes it easier</h3>
               </div></div>
             <div>
               <p className="about-text">Exciting news! We're upgrading our services in the coming days. To ensure you get the best results.</p>
             </div>
             <Grid container spacing={6} p={4}>
-            <Grid item xs={12} sm={2} lg={3}>
+              <Grid item xs={12} sm={2} lg={3}>
                 <Paper p={2} elevation={0}>
-                <div className="content1"><img src={lecture} /></div>
+                  <div className="content1"><img src={lecture} /></div>
                 </Paper>
               </Grid>
               <Grid item xs={12} sm={10} lg={9}>
@@ -130,7 +130,7 @@ const UGNEET = () => {
                   <div className="content">
                     <img src={worldwide} width={50} />
                     <p><strong>High NEET Competition? </strong>Explore Global Medical Schools.
-With limited domestic seats, consider studying medicine overseas. Our seminars guide you through the process for a successful international medical education.</p>
+                      With limited domestic seats, consider studying medicine overseas. Our seminars guide you through the process for a successful international medical education.</p>
                   </div>  </Paper>
               </Grid>
               <Grid item xs={12} sm={6} lg={6}>

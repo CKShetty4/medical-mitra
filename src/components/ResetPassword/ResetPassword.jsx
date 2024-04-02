@@ -9,7 +9,7 @@ import PasswordAndConfirmPasswordValidation from '../PasswordVaildation/Password
 import { Link, useNavigate } from "react-router-dom";
 import { Logo, Close } from '../../images/index.js';
 import { BACKEND_HOST } from '../../Constants.js';
-import  secureLocalStorage  from  "react-secure-storage";
+import secureLocalStorage from "react-secure-storage";
 
 function ResetPassword() {
   const [password, setPassword] = useState('');
@@ -27,54 +27,54 @@ function ResetPassword() {
     }
   }, [])
 
-/*  
-const handleSubmit = (e) => {
-    e.preventDefault();
-    fetch(`${BACKEND_HOST}/ForgotPassword/Reset`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        password: password
+  /*  
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      fetch(`${BACKEND_HOST}/ForgotPassword/Reset`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          password: password
+        })
       })
-    })
-    .then(response => {
-      if (!response.ok) {
-        if (response.status === 409) {
-          throw new Error('Reset Already Done');
-        } else {
-          throw new Error('HTTP error ' + response.status);
+      .then(response => {
+        if (!response.ok) {
+          if (response.status === 409) {
+            throw new Error('Reset Already Done');
+          } else {
+            throw new Error('HTTP error ' + response.status);
+          }
         }
-      }
-      return response.json();
-    })
-    .then(data => {
-      // Handle the response from the backend/
-      } else {
-        // Handle successful registration
-        toast.success("Password Reset Successfully", {
-          position: "top-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-        setTimeout(() => {
-          navigate('/');
-        }, 1500);
-      }
-    })
-    .catch(error => {
-      // Handle any errors
-        secureLocalStorage.clear();
-    });
-  };
-*/
+        return response.json();
+      })
+      .then(data => {
+        // Handle the response from the backend/
+        } else {
+          // Handle successful registration
+          toast.success("Password Reset Successfully", {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+          setTimeout(() => {
+            navigate('/');
+          }, 1500);
+        }
+      })
+      .catch(error => {
+        // Handle any errors
+          secureLocalStorage.clear();
+      });
+    };
+  */
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(`${BACKEND_HOST}/ForgotPassword/Reset`, {
@@ -99,10 +99,10 @@ const handleSubmit = (e) => {
       })
       .catch(error => {
         // Handle any errors
-        console.error(error);
+
       });
     setTimeout(() => {
-      if (Number(secureLocalStorage.getItem('password')) === 1 ) {
+      if (Number(secureLocalStorage.getItem('password')) === 1) {
         toast.success("Reset Successfully", {
           position: "top-center",
           autoClose: 1000,
@@ -131,7 +131,7 @@ const handleSubmit = (e) => {
           transition: Bounce,
         });
       }
-      
+
     }, 200);
 
   };
@@ -149,16 +149,16 @@ const handleSubmit = (e) => {
                   <Link to="/"><img src={Close} width={25} /></Link></div>
                 <br />
                 <div className={styles.Arranging}>
-                  <div className={styles.Image}><h1 className={styles.Head}>Reset Password</h1><br /> 
+                  <div className={styles.Image}><h1 className={styles.Head}>Reset Password</h1><br />
                     <img src={Logo} width={250} />
-                    
+
                   </div>
                   <div className="Form">
-                   <br /> 
+                    <br />
                     <form action="" onSubmit={handleSubmit}>
-                      
+
                       <div><PasswordAndConfirmPasswordValidation ref={passwordRef} onChange={(e) => setPassword(e.target.value)} onPasswordChange={handlePasswordChange} /> </div>
-                        <br />  
+                      <br />
                       <div style={{
                         display: 'flex', justifyContent: 'left', padding: '0 12%'
                       }}>

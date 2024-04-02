@@ -11,7 +11,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BACKEND_HOST } from '../../Constants.js';
-import  secureLocalStorage  from  "react-secure-storage";
+import secureLocalStorage from "react-secure-storage";
 import axios from 'axios';
 import { data } from 'jquery';
 
@@ -81,7 +81,7 @@ const Login = () => {
             toast.update(toastId.current, {
               render: data.message,
               type: "success",
-                isLoading: false,
+              isLoading: false,
               position: "top-center",
               autoClose: 1000,
               hideProgressBar: false,
@@ -104,7 +104,7 @@ const Login = () => {
         })
         .catch(error => {
           clearToast();
-  createToast('error', error.message);
+          createToast('error', error.message);
         });
     }
     else {
@@ -164,7 +164,6 @@ const Login = () => {
         }
       })
       .catch(error => {
-        console.error(error);
         toast.error(error.message, {
           position: "top-center",
           autoClose: 1000,

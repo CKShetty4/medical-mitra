@@ -1,34 +1,43 @@
 .Spacing {
-    padding:6rem 5rem;   
+    padding: 6rem 5rem;
 }
-.Spacing h2{
-    font-family: "Alegreya",serif;
+
+.Spacing h2 {
+    font-family: "Alegreya", serif;
     text-align: center;
-    color:var(--SomeBlue)
+    color: var(--SomeBlue)
 }
 
 .Spacing .content2 {
     text-align: center;
     align-content: center;
 }
+
 .Spacing .content1 {
     text-align: center;
     display: flex;
     padding: 2rem;
 }
+
 .Spacing .content {
     text-align: center;
     display: flex;
     align-items: center;
-    gap:6px;
+    gap: 6px;
     flex-direction: column;
 }
 
-.Spacing .Form {
-    text-align: center;
-    display: flex;
-    padding: 2rem;
-    gap:6px;
-    
+
+
+@media(max-width:720px) {
+    .Spacing {
+        padding: 3rem 4rem;
+    }
+
+    .Spacing .content1 {
+        text-align: left;
+        display: flex;
+        padding: 0rem;
+    }
+
 }
- 
