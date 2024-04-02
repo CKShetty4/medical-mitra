@@ -16,6 +16,21 @@
   padding: 8px;
 }
 
+.btn {
+  border-radius: 10px;
+  background: aqua;
+  color: var(--darkblue-color);
+  padding: 10px 32px;
+  font-weight: 800;
+  font-weight: 16px;
+  margin-left: 70vw;
+}
+
+.btn:hover {
+  box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.1) !important;
+}
+
+
 .form_control label {
   font-size: 14px;
   position: absolute;
@@ -330,5 +345,19 @@
     width: 45%;
     padding: 1rem;
     margin: 0 auto;
+  }
+
+  .btn {
+    border-radius: 10px;
+    background: aqua;
+    color: var(--darkblue-color);
+    padding: 10px 32px;
+    font-weight: 800;
+    font-weight: 16px;
+    margin-left: 50vw;
+  }
+
+  .btn:hover {
+    box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.1) !important;
   }
 }

@@ -11,6 +11,8 @@ import NavBar from '../../components/NavBar/NavBar'
 import { BACKEND_HOST } from '../../Constants.js';
 import $ from 'jquery';
 import secureLocalStorage from "react-secure-storage";
+import { CSVLink, CSVDownload } from "react-csv";
+
 // export const Detailed = () => { }
 const WebinarAdmin = () => {
   const navigate = useNavigate();
@@ -20,6 +22,7 @@ const WebinarAdmin = () => {
     }
   }, [])
   const [userData, setUserdata] = useState(null);
+  const [userCount,setUserCount]=useState(0)
   const [Title, setTitle] = useState('');
   const [selectedUserType, setSelectedUserType] = useState('');
   const [description, setdescription] = useState('');
@@ -35,6 +38,7 @@ const WebinarAdmin = () => {
   const [remainingCharacters, setRemainingCharacters] = useState(10000);
   const [descriptionValue, setDescriptionValue] = useState('');
   const [toggleView, setToggleView] = useState(true);
+  const [toggleView2, setToggleView2] = useState(true);
 
   useEffect(() => {
     const maxchar = 10000;
@@ -46,6 +50,7 @@ const WebinarAdmin = () => {
       setRemainingCharacters(maxchar - len);
     }
   }, [descriptionValue]);
+  
   useEffect(() => {
     const getUserdata = async () => {
       try {
@@ -55,17 +60,16 @@ const WebinarAdmin = () => {
             'Content-Type': 'application/json'
           }
         });
-
-
         if (!response.ok) {
           // If the response is not ok, handle the error here
           const errorMessage = `An error occurred while fetching detail: ${response.statusText}`;
           // console.error(errorMessage);
           return;
         }
-
         const json = await response.json();
         setUserdata(json.users);
+        setUserCount(json.count);
+        
       } catch (error) {
         // If an error occurs during the fetch request, handle it here
         // console.error('An error occurred while fetching details:', error);
@@ -105,8 +109,12 @@ const WebinarAdmin = () => {
         // console.error(error);
       });
   };
+ 
   const handleToggleView = () => {
     setToggleView(!toggleView);
+  };
+  const handleToggleView2 = () => {
+    setToggleView2(!toggleView2);
   };
   return (
     // <div><textarea ref={Detailed} />
@@ -114,11 +122,12 @@ const WebinarAdmin = () => {
     <> <div className="wrapper">
       <NavBar /></div><br />
       <br /><br /><br />
-      <h5 className={styles.HeadingStyles2}>
-        Number of Users: {userData && userData.length}
-      </h5>
+      <button className={styles.button} onClick={handleToggleView2}>
+  {toggleView2? `Number of Users: ${userData && userData.length}` : `Number of premium Users: ${userCount}`}
+</button>
+      
       <p className={styles.Notice}>Hello {secureLocalStorage.getItem('user')},<br />This page empowers you to manage upcoming seminars and user data with ease. </p>
-      <ul className={styles.Notice}><li><strong>Manage Users: </strong> The current user count is displayed above, and click on the button labeled "View User List" to access the user list for further management options.</li>
+      <ul className={styles.Notice}><li><strong>Manage Users: </strong> The current total user count is displayed at the top of this page. To view the number of premium users specifically, click the "Number of Users" button. For detailed user management options, including a complete user list, click the "View User List" button.</li>
         <li><strong>Host a Seminar: </strong> Toggle the button labeled "Host Webinar," to switch back to the seminar hosting interface.</li>
         <li><strong>Designed for Efficiency: </strong>
           This streamlined admin interface prioritizes your time by allowing you to quickly manage seminars and users.</li></ul>
@@ -131,6 +140,8 @@ const WebinarAdmin = () => {
       </button>
       <br /><br />
       {toggleView ? (
+       
+        
         <div className={styles.contact_form}>
           <Grid container spacing={0}>
             <Grid item xs={12} sm={12} lg={12} className={styles.center_paper}>
@@ -192,14 +203,19 @@ const WebinarAdmin = () => {
             </Grid>
           </Grid>
         </div>
+        
       )
         :
         (
+          <>
+          <div className="mb-3">
+          <CSVLink data={userData} enclosingCharacter={`"`} separator={";"} filename={"UsersList.csv"} className={styles.btn}>Export Data</CSVLink>
+        </div>
           <div className="container">
             <div className="row">
               <div className="col-md-12">
                 <h5 className={styles.HeadingStyles}>User Data</h5>
-                <table className="table table-bordered ">
+                <table className="table table-bordered " id=''>
                   <thead>
                     <tr>
                       <th className={styles.tableHeader}>Reg. No</th>
@@ -224,9 +240,10 @@ const WebinarAdmin = () => {
               </div>
             </div>
           </div>
+          </>
         )}
       <br /><br /><br /><br />
-
+      
     </>
   )
 }

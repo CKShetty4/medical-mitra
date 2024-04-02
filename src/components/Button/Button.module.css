@@ -97,3 +97,15 @@
     width: 80vw;
   }
 }
+
+@media (max-width: 376px) {
+  .primary_btn {
+    min-width: 150px;
+    height: 6vh;
+    padding: 0 auto;
+  }
+
+  .outline_btn {
+    width: 80vw;
+  }
+}

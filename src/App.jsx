@@ -1,14 +1,28 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import { Header, Info, Footer, Services } from './components'
 import { WhatsappLogo } from './images'
 import Defaultpop from './components/PopUp/Defaultpop'
 import secureLocalStorage from "react-secure-storage";
+import PreLoader from './components/Loader/PreLoader';
 const App = () => {
   useEffect(() => {
     window.scroll(0, 0);
   }, [])
-  return <>
-
+  useEffect(() => {
+    setScreenLoading(true);
+    setTimeout(() => {
+      setScreenLoading(false);
+    }, 5000);
+  }, []);
+  const [screenLoading, setScreenLoading] = useState(false);
+  return (
+   <>
+      {screenLoading ? (
+        <>
+       <PreLoader/>
+       <Header /></>
+      ) : (
+      <>
     <Header />
     <Services />
     <Info />
@@ -29,7 +43,10 @@ const App = () => {
         <img src={WhatsappLogo} width="60" />
       </a>
     </div>
-  </>
+    </>  
+      )}
+
+  </>);
 }
 
 export default App

@@ -17,10 +17,11 @@ const AboutDetail = () => {
           <p className="about-text">Unsure about your future in medicine or engineering? Medical mitra empowers you to make informed decisions with personalized counseling based on your marks and ranking. Our expert guidance helps you navigate the complex process of entrance exams and career choices, all in one place. Stop the doubts and shape your future with Medical mitra</p>
         </div>
         <br />
+        <br />
+        <Card />
         <div className="wrapper">
 
-          <br />
-          <Card />
+
           <br /><br /><br />
           <div>
             <h2 className="about-title">What we Do?</h2>

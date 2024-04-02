@@ -10,7 +10,7 @@ const Defaultpop = () => {
     useEffect(() => {
         setTimeout(() => {
             setTimedPopUp(true);
-        }, 3000);
+        }, 8000);
     }, []);
 
     return (

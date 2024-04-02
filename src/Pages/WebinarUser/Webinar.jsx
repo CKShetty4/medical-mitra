@@ -97,33 +97,6 @@ const Webinar = () => {
                       </>
                       :
                       <>
-                        {/* Active Conditon PREMIUM */}
-                        {
-                          secureLocalStorage.getItem('type') === 'premium' ?
-                            <>
-                              <div className={styles.Webinar2}>
-                                <div>
-                                  <img src={schedule} width={60} alt="" />
-                                </div>
-                                <div>
-                                  {webData && webData.premium && webData.premium.length > 0 && (
-                                    <div className={styles.clss}>
-                                      <h3>Don't miss out! Register for our upcoming webinar:</h3>
-                                      <h3>{webData.premium[0].title}</h3>
-                                      <h4>Description: {webData.premium[0].description}</h4>
-
-                                      <h6>Join us on {webData.premium[0].date} at {webData.premium[0].time} IST for an insightful webinar on {webData.premium[0].title}. <br />
-                                        Reserve your spot today! Click the button below to register for this free webinar.</h6>
-                                      Register Now! <br /> Space is limited, so don't delay!
-                                      <a href={webData.premium[0].link}> <Button text={"Register"} /></a>
-                                    </div>
-                                  )}
-                                </div>
-                              </div>
-                            </>
-                            :
-                            <></>
-                        }
                       </>
                   }
                 </>
@@ -156,9 +129,10 @@ const Webinar = () => {
               <div>Loading...</div>
             )}
 
-            {/* {webData ? (
-              webData.status === "active" ? (
+            {webData ? (
+              webData.statusPremium === "active" ? (
                 <>
+                  {/* Active Conditon PREMIUM */}
                   {
                     secureLocalStorage.getItem('type') === 'premium' ?
                       <>
@@ -187,12 +161,34 @@ const Webinar = () => {
                   }
                 </>
               ) : (
-                <></>
+                <>
+                  {/* Inative condition */}
+                  <div className={styles.Webinar2}>
+                    <div>
+                      <img src={schedule} width={60} alt="" />
+                    </div>
+                    <div>
+                      <div className={styles.clss}>
+                        <h3>Stay Informed About Upcoming Webinars!</h3>
+                        <h4>We don't currently have any webinars scheduled, but we host informative sessions regularly.
+                        </h4><h4>
+                          To stay up-to-date on future webinars:</h4>
+                        <ul>
+                          <li>Visit our website regularly.</li>
+                          <li>Sign up for our email notifications.</li>
+                          <li>Follow us on social media.</li></ul>
+                        We'll also reach out directly via email, contact, or WhatsApp if a new webinar is planned.
+                        <br />
+                        This way, you won't miss out on the valuable insights we share in our webinars!
+                      </div>
+                    </div>
+                  </div>
+                </>
               )
             ) : (
               <div>Loading...</div>
             )}
- */}
+
 
           </div>
         </div>
