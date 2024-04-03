@@ -56,7 +56,7 @@ const routes = [
     element: <SignUp />,
   },
   {
-    path: 'PrivacyPolicy',
+    path: 'LegalTerms',
     element: <PrivacyPolicy />,
   },
 ]

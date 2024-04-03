@@ -17,6 +17,37 @@ const PrivacyPolicy = () => {
         <NavBar />
       </div>
       <br /><br /><br /><br />
+      
+       <h3>Terms and Conditions</h3>
+      <h4>Refunds and Cancellations</h4>
+      
+      <h5>1. Refund Policy</h5>
+      <p>
+        We strive to provide excellent service to our users.  If, however, you are not satisfied with your premium membership and wish to request a refund, please refer to the following guidelines:
+      </p>
+      <ul>
+        <li> <strong>Full Refunds</strong>: You are eligible for a full refund within [Number] days of purchasing a premium membership.</li>
+         <li> <strong>Partial Refunds</strong>: After [Number] days from purchase, refunds are granted on a prorated basis, minus any applicable fees.</li>
+      </ul>
+      <h5>2. Processing Time</h5>
+      <p>
+      Once a refund request is approved, it may take between [Number] and [Number] business days for the refunded amount to be credited back to your original payment method (processed through Razorpay).
+      </p>
+      <h5>3. Cancellation Policy</h5>
+      <p>
+      You can cancel your premium membership at any time by  contacting support.  Your cancellation will be effective immediately, and you will not be charged for any future billing cycles. However, you will not be eligible for a prorated refund for any remaining time in your current billing cycle.
+      </p>
+      <p>
+      <strong>Please Note:</strong>
+      </p>
+      <ul>
+        <li> Refunds and cancellations are subject to these Terms and Conditions.</li>
+         <li> We reserve the right to modify this policy at any time. We will notify you of any changes by posting the revised policy on our website. Your continued use of our service following the posting of any revised policy constitutes your acceptance of the revised Terms.</li>
+      </ul>
+      <h5>4. Contact Us</h5>
+      <p>
+      If you have any questions regarding refunds, cancellations, or these Terms and Conditions, please contact us at info@medicalmitra.co.in
+      </p>
       <h3>Privacy Policy</h3>
       <p>
         This Privacy Policy describes our policies and procedures on the collection, use, and disclosure of your information when you use our Service and tells you about your rights and how the law protects you.

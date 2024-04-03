@@ -16,6 +16,10 @@
     color: var(--darkblue-color);
     font-family: 'Times New Roman', Times, serif;
 }
+.container h4 {
+    color: var(--darkblue-color);
+    font-family: 'Times New Roman', Times, serif;
+}
 
 .container h1 {
     color: var(--darkblue-color);
