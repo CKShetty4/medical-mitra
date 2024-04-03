@@ -67,13 +67,11 @@ const Webinar = () => {
             <img src={Doctor} className={styles.DOC} alt="" />
           </div>
           <div>
-
-            {webData ? (
-              webData.statusFree === "active" ? (
+            {
+              secureLocalStorage.getItem('type') === 'free' ?
                 <>
-                  {/* Active Conditon USERS */}
-                  {
-                    secureLocalStorage.getItem('type') === 'free' ?
+                  {webData ? (
+                    webData.statusFree === "active" ? (
                       <>
                         <div className={styles.Webinar2}>
                           <div>
@@ -95,46 +93,47 @@ const Webinar = () => {
                           </div>
                         </div>
                       </>
-                      :
+                    ) : (
                       <>
+                        {/* Inative condition */}
+                        <div className={styles.Webinar2}>
+                          <div>
+                            <img src={schedule} width={60} alt="" />
+                          </div>
+                          <div>
+                            <div className={styles.clss}>
+                              <h3>Stay Informed About Upcoming Webinars!</h3>
+                              <h4>We don't currently have any webinars scheduled, but we host informative sessions regularly.
+                              </h4><h4>
+                                To stay up-to-date on future webinars:</h4>
+                              <ul>
+                                <li>Visit our website regularly.</li>
+                                <li>Sign up for our email notifications.</li>
+                                <li>Follow us on social media.</li></ul>
+                              We'll also reach out directly via email, contact, or WhatsApp if a new webinar is planned.
+                              <br />
+                              This way, you won't miss out on the valuable insights we share in our webinars!
+                            </div>
+                          </div>
+                        </div>
                       </>
-                  }
+                    )
+                  ) : (
+                    <div>Loading...</div>
+                  )}
                 </>
-              ) : (
+                :
                 <>
-                  {/* Inative condition */}
-                  <div className={styles.Webinar2}>
-                    <div>
-                      <img src={schedule} width={60} alt="" />
-                    </div>
-                    <div>
-                      <div className={styles.clss}>
-                        <h3>Stay Informed About Upcoming Webinars!</h3>
-                        <h4>We don't currently have any webinars scheduled, but we host informative sessions regularly.
-                        </h4><h4>
-                          To stay up-to-date on future webinars:</h4>
-                        <ul>
-                          <li>Visit our website regularly.</li>
-                          <li>Sign up for our email notifications.</li>
-                          <li>Follow us on social media.</li></ul>
-                        We'll also reach out directly via email, contact, or WhatsApp if a new webinar is planned.
-                        <br />
-                        This way, you won't miss out on the valuable insights we share in our webinars!
-                      </div>
-                    </div>
-                  </div>
                 </>
-              )
-            ) : (
-              <div>Loading...</div>
-            )}
+            }
 
-            {webData ? (
-              webData.statusPremium === "active" ? (
+            {/* Active Conditon PREMIUM */}
+            {
+              secureLocalStorage.getItem('type') === 'premium' ?
                 <>
-                  {/* Active Conditon PREMIUM */}
-                  {
-                    secureLocalStorage.getItem('type') === 'premium' ?
+
+                  {webData ? (
+                    webData.statusPremium === "active" ? (
                       <>
                         <div className={styles.Webinar2}>
                           <div>
@@ -156,38 +155,39 @@ const Webinar = () => {
                           </div>
                         </div>
                       </>
-                      :
-                      <></>
-                  }
+                    ) : (
+                      <>
+                        {/* Inative condition */}
+                        <div className={styles.Webinar2}>
+                          <div>
+                            <img src={schedule} width={60} alt="" />
+                          </div>
+                          <div>
+                            <div className={styles.clss}>
+                              <h3>Stay Informed About Upcoming Webinars!</h3>
+                              <h4>We don't currently have any webinars scheduled, but we host informative sessions regularly.
+                              </h4><h4>
+                                To stay up-to-date on future webinars:</h4>
+                              <ul>
+                                <li>Visit our website regularly.</li>
+                                <li>Sign up for our email notifications.</li>
+                                <li>Follow us on social media.</li></ul>
+                              We'll also reach out directly via email, contact, or WhatsApp if a new webinar is planned.
+                              <br />
+                              This way, you won't miss out on the valuable insights we share in our webinars!
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    )
+                  ) : (
+                    <div>Loading...</div>
+                  )}
                 </>
-              ) : (
-                <>
-                  {/* Inative condition */}
-                  <div className={styles.Webinar2}>
-                    <div>
-                      <img src={schedule} width={60} alt="" />
-                    </div>
-                    <div>
-                      <div className={styles.clss}>
-                        <h3>Stay Informed About Upcoming Webinars!</h3>
-                        <h4>We don't currently have any webinars scheduled, but we host informative sessions regularly.
-                        </h4><h4>
-                          To stay up-to-date on future webinars:</h4>
-                        <ul>
-                          <li>Visit our website regularly.</li>
-                          <li>Sign up for our email notifications.</li>
-                          <li>Follow us on social media.</li></ul>
-                        We'll also reach out directly via email, contact, or WhatsApp if a new webinar is planned.
-                        <br />
-                        This way, you won't miss out on the valuable insights we share in our webinars!
-                      </div>
-                    </div>
-                  </div>
-                </>
-              )
-            ) : (
-              <div>Loading...</div>
-            )}
+                :
+                <></>
+            }
+
 
 
           </div>
