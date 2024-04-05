@@ -198,7 +198,7 @@ const Login = () => {
                     <br />
                     <form action="" onSubmit={handleSubmit}>
                       <div className={styles.form_control}>
-                        <label htmlFor="Name">Username</label>
+                        <label htmlFor="Name">Email / Phonenumber</label>
                         <input required ref={login_credRef} onChange={(e) => setlogin_cred(e.target.value)} placeholder='Email/Phone Number' type="text" name="Name" />
                       </div>
                       <div className={styles.form_control}>
