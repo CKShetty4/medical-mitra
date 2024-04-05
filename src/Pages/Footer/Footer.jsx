@@ -33,7 +33,8 @@ const Footer = () => {
             <h3>Quick Links</h3>
             <ul>
               <li><a href="#">Blog</a></li>
-              <li><Link preventScrollReset={true} to="/LegalTerms">Legal Terms</Link></li>
+              <li><Link preventScrollReset={true} to="/LegalTerms">Privacy Policy</Link></li>
+              <li><Link preventScrollReset={true} to="/TermsAndConditions">Terms and Condtions</Link></li>
             </ul>
           </div>
           <div className="links">

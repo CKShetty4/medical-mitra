@@ -9,5 +9,6 @@ import SignUp from "./SignUp/SignUp"
 import WebinarAdmin from "./WebinarAdmin/WebinarAdmin"
 import PrivacyPolicy from "./PrivacyPolicy/PrivacyPolicy"
 import PlanCompare from "./PlanCompare/PlanCompare"
+import TandC from "./TandC/TandC"
 
-export { About, Footer, PlanCompare, WebinarAdmin, Webinar, Contact, UGNEET, PGNEET, Login, SignUp, PrivacyPolicy }
+export { About, Footer, PlanCompare, WebinarAdmin, Webinar, Contact, UGNEET, PGNEET, Login, SignUp, PrivacyPolicy,TandC }

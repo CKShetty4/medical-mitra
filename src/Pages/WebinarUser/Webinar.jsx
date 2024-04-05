@@ -16,6 +16,11 @@ const Webinar = () => {
       navigate('/WebinarAdmin');
     }
   }, [])
+  useEffect(() => {
+    if (secureLocalStorage.getItem('type') ===null) {
+      navigate('/Login');
+    }
+  }, [])
   const [webData, setwebData] = useState();
 
   useEffect(() => {

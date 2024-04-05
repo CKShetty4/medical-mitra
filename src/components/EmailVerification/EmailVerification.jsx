@@ -104,7 +104,7 @@ const EmailVerification = () => {
       const storedOTP = parseInt(secureLocalStorage.getItem("SecureCode"));
       if (enteredOTP === storedOTP) {
         // Redirect to the password reset page if the OTP matches
-        secureLocalStorage.clear();
+        secureLocalStorage.removeItem('SecureCode');
         secureLocalStorage.setItem('reset', 1);
         navigate("/password-reset");
       } else {

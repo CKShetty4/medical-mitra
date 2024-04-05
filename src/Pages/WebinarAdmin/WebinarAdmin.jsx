@@ -208,9 +208,9 @@ const WebinarAdmin = () => {
         :
         (
           <>
-          <div className="mb-3">
+          {/* <div className="mb-3">
           <CSVLink data={userData} enclosingCharacter={`"`} separator={";"} filename={"UsersList.csv"} className={styles.btn}>Export Data</CSVLink>
-        </div>
+        </div> */}
           <div className="container">
             <div className="row">
               <div className="col-md-12">

@@ -16,7 +16,47 @@ function ResetPassword() {
   const navigate = useNavigate();
   const phoneNumberRef = useRef();
   const passwordRef = useRef();
-
+  useEffect(() => {
+    if (secureLocalStorage.getItem('reset') ===null) {
+      
+      toast.error("There was an Error during Verification", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      setTimeout(() => {
+        navigate('/Login');
+        secureLocalStorage.clear();
+      }, 1500);
+    }
+  }, [])
+  useEffect(() => {
+    if (secureLocalStorage.getItem('reset') ===0) {
+      
+      toast.error("There was an Error during Verification", {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      setTimeout(() => {
+        navigate('/Login');
+        secureLocalStorage.clear();
+      }, 1500);
+    }
+  }, [])
+  
   const handlePasswordChange = (password) => {
     setPassword(password);
   };
@@ -116,6 +156,7 @@ function ResetPassword() {
         });
         setTimeout(() => {
           navigate('/Login');
+          secureLocalStorage.clear();
         }, 1500);
       }
       else if (Number(secureLocalStorage.getItem('password')) === 0) {

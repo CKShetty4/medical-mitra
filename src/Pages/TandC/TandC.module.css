@@ -1,0 +1,9 @@
+.container {
+    margin: 0 75px;
+}
+
+.container h3 {
+    color: var(--darkblue-color);
+    font-family: 'Times New Roman', Times, serif;
+}
+

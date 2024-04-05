@@ -1,6 +1,6 @@
 import { Route, createBrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
-import { About, Contact, Webinar, WebinarAdmin, UGNEET, PGNEET, Login, SignUp, PrivacyPolicy, PlanCompare } from './Pages'
+import { About, Contact, Webinar, WebinarAdmin, UGNEET, PGNEET, Login, SignUp, PrivacyPolicy, PlanCompare,TandC } from './Pages'
 import { EmailVerification, ResetPassword, PaymentGateway } from "../src/components/index"
 const routes = [
   {
@@ -18,6 +18,10 @@ const routes = [
   {
     path: 'About',
     element: <About />,
+  },
+  {
+    path: 'TermsAndConditions',
+    element: <TandC/>,
   },
   {
     path: 'OTP',
