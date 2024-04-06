@@ -188,8 +188,8 @@ const WebinarAdmin = () => {
                           ref={userTypeRef}
                         >
                           <option value="">Select User Type</option>
-                          <option value="Premium Users">Premium Users</option>
-                          <option value="Lite Users">Lite Users</option>
+                          <option value="premium">Premium Users</option>
+                          <option value="free">Lite Users</option>
                         </select>
                       </div>
                       <div style={{
