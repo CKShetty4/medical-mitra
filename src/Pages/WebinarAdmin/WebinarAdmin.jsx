@@ -80,8 +80,8 @@ const WebinarAdmin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('date:', dateRef.current ? dateRef.current.value : '');
-    console.log('time:', timeRef.current ? timeRef.current.value : '');
+    // console.log('date:', dateRef.current ? dateRef.current.value : '');
+    // console.log('time:', timeRef.current ? timeRef.current.value : '');
     fetch(`${BACKEND_HOST}/Webinar/Admin`, {
       method: 'POST',
       headers: {
@@ -93,7 +93,7 @@ const WebinarAdmin = () => {
         LinkURL: LinkURLRef.current ? LinkURLRef.current.value : '',
         date: dateRef.current ? dateRef.current.value : '',
         time: timeRef.current ? timeRef.current.value : '',
-        userType: userTypeRef.current ? userTypeRef.current.value : ''
+        type: userTypeRef.current ? userTypeRef.current.value : ''
       })
     }
     ) 
