@@ -11,7 +11,7 @@ import NavBar from '../../components/NavBar/NavBar'
 import { BACKEND_HOST } from '../../Constants.js';
 import $ from 'jquery';
 import secureLocalStorage from "react-secure-storage";
-import { CSVLink, CSVDownload } from "react-csv";
+// import { CSVLink, CSVDownload } from "react-csv";
 
 // export const Detailed = () => { }
 const WebinarAdmin = () => {
@@ -22,7 +22,7 @@ const WebinarAdmin = () => {
     }
   }, [])
   const [userData, setUserdata] = useState(null);
-  const [userCount,setUserCount]=useState(0)
+  const [userCount, setUserCount] = useState(0)
   const [Title, setTitle] = useState('');
   const [selectedUserType, setSelectedUserType] = useState('');
   const [description, setdescription] = useState('');
@@ -50,7 +50,7 @@ const WebinarAdmin = () => {
       setRemainingCharacters(maxchar - len);
     }
   }, [descriptionValue]);
-  
+
   useEffect(() => {
     const getUserdata = async () => {
       try {
@@ -69,7 +69,7 @@ const WebinarAdmin = () => {
         const json = await response.json();
         setUserdata(json.users);
         setUserCount(json.count);
-        
+
       } catch (error) {
         // If an error occurs during the fetch request, handle it here
         // console.error('An error occurred while fetching details:', error);
@@ -80,7 +80,9 @@ const WebinarAdmin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`${BACKEND_HOST}/Webinar`, {
+    console.log('date:', dateRef.current ? dateRef.current.value : '');
+    console.log('time:', timeRef.current ? timeRef.current.value : '');
+    fetch(`${BACKEND_HOST}/Webinar/Admin`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -93,23 +95,58 @@ const WebinarAdmin = () => {
         time: timeRef.current ? timeRef.current.value : '',
         userType: userTypeRef.current ? userTypeRef.current.value : ''
       })
-    })
+    }
+    ) 
       .then(response => {
         if (!response.ok) {
-          throw new Error('HTTP error ' + response.status);
+          throw new Error(response.statusText);
         }
         return response.json();
-      })
+      }) 
       .then(data => {
-        // Handle the response from the backend
-
+        if (data.message==="Done updating") {
+          toast.success('Update Success', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+        }
+        else {
+          toast.error(data.message, {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+          });
+        }
       })
       .catch(error => {
-        // Handle any errors
-        // console.error(error);
+        toast.error(error.message, {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
       });
   };
- 
+
+
   const handleToggleView = () => {
     setToggleView(!toggleView);
   };
@@ -123,9 +160,9 @@ const WebinarAdmin = () => {
       <NavBar /></div><br />
       <br /><br /><br />
       <button className={styles.button} onClick={handleToggleView2}>
-  {toggleView2? `Number of Users: ${userData && userData.length}` : `Number of premium Users: ${userCount}`}
-</button>
-      
+        {toggleView2 ? `Number of Users: ${userData && userData.length}` : `Number of premium Users: ${userCount}`}
+      </button>
+
       <p className={styles.Notice}>Hello {secureLocalStorage.getItem('user')},<br />This page empowers you to manage upcoming seminars and user data with ease. </p>
       <ul className={styles.Notice}><li><strong>Manage Users: </strong> The current total user count is displayed at the top of this page. To view the number of premium users specifically, click the "Number of Users" button. For detailed user management options, including a complete user list, click the "View User List" button.</li>
         <li><strong>Host a Seminar: </strong> Toggle the button labeled "Host Webinar," to switch back to the seminar hosting interface.</li>
@@ -140,8 +177,8 @@ const WebinarAdmin = () => {
       </button>
       <br /><br />
       {toggleView ? (
-       
-        
+
+
         <div className={styles.contact_form}>
           <Grid container spacing={0}>
             <Grid item xs={12} sm={12} lg={12} className={styles.center_paper}>
@@ -189,7 +226,7 @@ const WebinarAdmin = () => {
                         >
                           <option value="">Select User Type</option>
                           <option value="premium">Premium Users</option>
-                          <option value="free">Lite Users</option>
+                          <option value="free">Free Users</option>
                         </select>
                       </div>
                       <div style={{
@@ -203,47 +240,60 @@ const WebinarAdmin = () => {
             </Grid>
           </Grid>
         </div>
-        
+
       )
         :
         (
           <>
-          {/* <div className="mb-3">
+            {/* <div className="mb-3">
           <CSVLink data={userData} enclosingCharacter={`"`} separator={";"} filename={"UsersList.csv"} className={styles.btn}>Export Data</CSVLink>
         </div> */}
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12">
-                <h5 className={styles.HeadingStyles}>User Data</h5>
-                <table className="table table-bordered " id=''>
-                  <thead>
-                    <tr>
-                      <th className={styles.tableHeader}>Reg. No</th>
-                      <th className={styles.tableHeader}>Username</th>
-                      <th className={styles.tableHeader}>Email</th>
-                      <th className={styles.tableHeader}>Phone No</th>
-                      <th className={styles.tableHeader}>User Type</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {userData && userData.map((user) => (
-                      <tr key={user.id}>
-                        <td>{user.id} </td>
-                        <td>{user.name} </td>
-                        <td>{user.email} </td>
-                        <td>{user.phonenumber} </td>
-                        <td>{user.type} </td>
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12">
+                  <h5 className={styles.HeadingStyles}>User Data</h5>
+                  <table className="table table-bordered " id=''>
+                    <thead>
+                      <tr>
+                        <th className={styles.tableHeader}>Reg. No</th>
+                        <th className={styles.tableHeader}>Username</th>
+                        <th className={styles.tableHeader}>Email</th>
+                        <th className={styles.tableHeader}>Phone No</th>
+                        <th className={styles.tableHeader}>User Type</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {userData && userData.map((user) => (
+                        <tr key={user.id}>
+                          <td>{user.id} </td>
+                          <td>{user.name} </td>
+                          <td>{user.email} </td>
+                          <td>{user.phonenumber} </td>
+                          <td>{user.type} </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
-          </div>
           </>
         )}
       <br /><br /><br /><br />
-      
+      <ToastContainer
+            position="top-center"
+            autoClose={4000}
+            hideProgressBar={false}
+            limit={1}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            transition={Bounce}
+          />
     </>
   )
 }
