@@ -5,7 +5,7 @@ This website is a client project and was designed using the following technologi
 **Features:**
 - Responsive design for optimal viewing on various devices.
 - User Management:
- - Sign Up page with password validation.
+  - Sign Up page with password validation.
  - Login page for existing users.
 - Content Pages:
  - Webinar page for hosting online events, Dyanmically rendered based on user who is registered.
